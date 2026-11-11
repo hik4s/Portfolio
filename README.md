@@ -33,9 +33,10 @@ instalação reproduzível, testes e build em pushes/PRs; não realiza deploy.
 
 ## Jornada e conteúdo
 
-- Apresentação, projetos e contato com currículo PDF original de 09/11/2026.
+- Abertura pessoal com a origem do RelatPy e currículo PDF original de 09/11/2026.
+- Passagens visuais entre capítulos, leitura ampliada e movimento reduzido.
 - Casos do RelatPy, CareerOS, NEXUS, Nexa Finance e Nexer, com escopo e limitações.
-- Exploração das decisões, referências ao código e captura real do NEXUS.
+- Exploração das decisões, captura real do NEXUS e prancha de identidade do Nexa, ampliáveis.
 - Filtros de vagas e validação financeira ilustrativos, identificados como demos.
 - Laboratório CSV: amostra sintética, arquivo local e relatório para download.
 - Competências com evidências, processo de trabalho, uso de IA e trajetória.
@@ -47,22 +48,25 @@ JavaScript é necessário. As aplicações externas têm seus próprios requisit
 
 ## Estrutura
 
-| Caminho | Responsabilidade |
-| --- | --- |
-| `src/App.tsx` | Composição das páginas, destinos e foco da navegação |
-| `src/editorial/Language.tsx` | Contexto PT/EN, preferência e idioma do documento |
-| `src/editorial/useRoute.ts` | Rotas hash, links profundos e histórico |
-| `src/editorial/Navigation.tsx` | Menu fixo, seção atual, progresso e currículo |
-| `src/editorial/ProjectChapters.tsx` | Índice e capítulos dos cinco projetos |
-| `src/editorial/CasePage.tsx` | Desafio, contribuição, decisões, resultados e evidências |
-| `src/data/cases.ts` | Conteúdo tipado PT/EN, links e limites de cada projeto |
-| `src/components/Demos.tsx` | Demonstrações interativas e conhecimentos |
-| `src/components/CsvLab.tsx` | Carregamento, estados, resultados e exportação CSV |
-| `src/lib/csv.ts` | Parser, regras, limites e proteção da exportação |
-| `src/components/Brand.tsx`, `src/assets/` | Identidades visuais dos projetos |
-| `src/styles/editorial.css` | Layout editorial e responsividade |
-| `src/styles/portfolio.css` | Estilos compartilhados de marcas e demonstrações |
-| `public/assets/` | Currículo, captura real, favicon e imagem de compartilhamento |
+| Caminho                                   | Responsabilidade                                              |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| `src/App.tsx`                             | Composição das páginas, destinos e foco da navegação          |
+| `src/editorial/Language.tsx`              | Contexto PT/EN, preferência e idioma do documento             |
+| `src/editorial/useRoute.ts`               | Rotas hash, links profundos e histórico                       |
+| `src/editorial/Navigation.tsx`            | Menu fixo, seção atual, progresso e currículo                 |
+| `src/editorial/ProjectChapters.tsx`       | Índice e capítulos dos cinco projetos                         |
+| `src/editorial/ChapterBridge.tsx`         | Transições visuais e navegação entre projetos                 |
+| `src/editorial/RealProjectMedia.tsx`      | Imagens originais, ampliação e fontes                         |
+| `src/editorial/CasePage.tsx`              | Desafio, contribuição, decisões, resultados e evidências      |
+| `src/data/cases.ts`                       | Conteúdo tipado PT/EN, links e limites de cada projeto        |
+| `src/components/Demos.tsx`                | Demonstrações interativas e conhecimentos                     |
+| `src/components/CsvLab.tsx`               | Carregamento, estados, resultados e exportação CSV            |
+| `src/lib/csv.ts`                          | Parser, regras, limites e proteção da exportação              |
+| `src/components/Brand.tsx`, `src/assets/` | Identidades visuais dos projetos                              |
+| `src/styles/visual-polish.css`            | Abertura pessoal, ritmo, mídia e medidas de leitura           |
+| `src/styles/editorial.css`                | Layout editorial e responsividade                             |
+| `src/styles/portfolio.css`                | Estilos compartilhados de marcas e demonstrações              |
+| `public/assets/`                          | Currículo, captura real, favicon e imagem de compartilhamento |
 
 Atualize os casos em `src/data/cases.ts`. Os textos das demais seções ficam junto
 aos componentes editoriais, com versões PT/EN. O currículo oferecido continua em
@@ -109,7 +113,9 @@ persistidos no armazenamento do navegador.
 
 O conteúdo foi conferido nos READMEs e arquivos referenciados dos projetos.
 A captura `nexus-overview.png` vem de `hik4s/NEXUS/docs/ui-overview.png` e usa dados
-fictícios. Outros painéis desta página são ilustrações interativas, não capturas.
+fictícios. `nexa-identity.png` vem de `hik4s/Nexa/brand/identity/apresentacao/identidade.png`: é
+uma prancha de marca, não uma tela Android. Os demais painéis são demonstrações identificadas.
+CareerOS e RelatPy não tinham capturas disponíveis nos repositórios consultados.
 Os tempos do RelatPy são relatos aproximados do currículo, sem benchmark público.
 Não são inventados usuários, taxas de sucesso, depoimentos, retrato ou vídeo.
 

@@ -1,7 +1,7 @@
 import type { ProjectId } from "../data/projects";
 import { CareerDemo, FinanceDemo, NexusDemo } from "../components/Demos";
 import { useLanguage } from "./Language";
-import { assetUrl } from "./Navigation";
+import { RealProjectMedia } from "./RealProjectMedia";
 
 export function ProjectVisual({
   id,
@@ -12,36 +12,22 @@ export function ProjectVisual({
 }) {
   const { t } = useLanguage();
   if (id === "career") return <CareerDemo />;
-  if (id === "nexa") return <FinanceDemo />;
-  if (id === "nexus")
-    return screenshot ? (
-      <figure className="product-capture">
-        <div className="capture-bar">
-          <i />
-          <i />
-          <i />
-          <span>nexus / workspace</span>
-        </div>
-        <img
-          width="1440"
-          height="1304"
-          loading="lazy"
-          src={assetUrl("assets/nexus-overview.png")}
-          alt={t(
-            "Captura real da visão geral do NEXUS com dados fictícios",
-            "Actual NEXUS overview screenshot with fictional data",
-          )}
-        />
-        <figcaption>
-          {t(
-            "Interface real · ambiente de demonstração",
-            "Actual interface · demo environment",
-          )}
-        </figcaption>
-      </figure>
-    ) : (
-      <NexusDemo />
+  if (id === "nexa")
+    return (
+      <div className="nexa-media-stack">
+        <RealProjectMedia project="nexa" />
+        <details className="nexa-rule-demo">
+          <summary>
+            {t("Experimentar uma regra financeira", "Try a financial rule")}
+          </summary>
+          <div>
+            <FinanceDemo />
+          </div>
+        </details>
+      </div>
     );
+  if (id === "nexus")
+    return screenshot ? <RealProjectMedia project="nexus" /> : <NexusDemo />;
   if (id === "relatpy")
     return (
       <div className="automation-scene demo">

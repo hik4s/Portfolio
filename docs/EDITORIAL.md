@@ -1,11 +1,13 @@
 # Entrega alternativa editorial — 10/11/2026
 
 ## Relação entre versões
+
 - Base preservada: feat/react-typescript, commit fae17bc.
 - Alternativa: feat/editorial-portfolio, com PR comparando a base React.
 - Sem merge em main ou publicação/alteração de hospedagem.
 
 ## Entregas
+
 - Identidade editorial refinada: papel, terracota, composição tipográfica e marcas próprias.
 - Menu fixo, seção ativa, progresso de leitura, foco e navegação por teclado.
 - Cinco casos completos em PT/EN com desafio, contribuição, decisões, links, resultados e limites.
@@ -17,6 +19,7 @@
 - Removidos componentes antigos sem uso e CSS que atendia só à estrutura anterior.
 
 ## Verificação
+
 - Suíte local: parser, datas, CSV malformado, limites de tamanho/linhas, exportação;
   interação dos painéis, upload, recuperação, idioma, casos e navegação/foco.
 - Build de produção inclui TypeScript estrito.
@@ -28,6 +31,7 @@
 - O workflow foi adicionado; seu resultado remoto precisa ser observado no GitHub após push.
 
 ## Decisões e limites
+
 - Currículo original preservado, sem inventar datas ou reescrever sua experiência.
 - CareerOS: React no módulo de autenticação; não há URL demo documentada no README atual.
 - Nexer: o README principal ainda descreve RelatPy; o caso diferencia proposta de evidência.
@@ -36,3 +40,19 @@
 - Nenhuma medição de contratação, escala ou economia percentual foi inventada.
 - Open Graph absoluto depende de VITE_SITE_URL na publicação; a imagem já está incluída.
 - O laboratório aplica regras genéricas demonstrativas; não é um validador operacional de TMA.
+
+## Complemento visual solicitado
+
+- A primeira alternativa entregou estrutura e conteúdo, mas o acabamento visual ficou parcial.
+- Revisão aplicada: abertura com autoria e trajetória, medidas de leitura maiores, transições
+  explícitas entre os projetos e galeria real com ampliação.
+- Busca de mídia: CareerOS e RelatPy não incluem capturas no repositório. A URL do CareerOS
+  documentada em WEB_MVP.md respondeu Not Found no navegador desta sessão.
+- NEXUS possui captura real e Nexa disponibiliza uma prancha real de identidade visual.
+  A prancha está identificada como marca, não como tela do aplicativo.
+- Retrato pessoal não será inventado: usar monograma/autoria até receber foto escolhida pelo autor.
+
+- Verificado em navegador desktop e contexto móvel de 390 px: abertura, navegação entre capítulos,
+  leitura sem transbordamento e mídia real. Demonstração financeira recolhível preserva o ritmo.
+- Textos de projetos em 16 px no desktop/15 px no celular; casos em 17/16 px, entrelinha ampla.
+- Evidências: [abertura](visual-personal.png) e [transição](visual-transition.png).

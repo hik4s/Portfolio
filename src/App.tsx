@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { caseStudies } from "./data/cases";
 import { Skills } from "./components/Demos";
 import { CsvLab } from "./components/CsvLab";
@@ -12,6 +12,7 @@ import {
   ContactSection,
 } from "./editorial/HomeSections";
 import { ProjectIndex, ProjectChapter } from "./editorial/ProjectChapters";
+import { ChapterBridge } from "./editorial/ChapterBridge";
 import { CasePage } from "./editorial/CasePage";
 import { Updates } from "./editorial/Updates";
 import { useRoute } from "./editorial/useRoute";
@@ -55,7 +56,16 @@ function Portfolio({ route }: { route: Route }) {
           <EditorialHero />
           <ProjectIndex cases={cases} />
           {cases.map((item, index) => (
-            <ProjectChapter key={item.id} item={item} index={index} />
+            <Fragment key={item.id}>
+              <ProjectChapter item={item} index={index} />
+              {cases[index + 1] && (
+                <ChapterBridge
+                  from={item}
+                  to={cases[index + 1]}
+                  number={index + 2}
+                />
+              )}
+            </Fragment>
           ))}
           <section className="lab-section light-section" id="laboratorio">
             <div className="section-topline">

@@ -64,34 +64,38 @@ export function EditorialHero() {
             )}
           </p>
         </div>
-        <div className="editorial-art" aria-hidden="true">
-          <div className="art-orbit" />
-          <div className="art-orbit second" />
-          <span className="art-coordinate">01 / IDEIA → APLICAÇÃO</span>
-          <div className="code-sheet">
-            <div className="sheet-top">
-              KAUAN / WORK IN PROGRESS<span>● ● ●</span>
-            </div>
-            <span className="giant-braces">{"{ / }"}</span>
-            <div className="sheet-code">
-              const curiosity = true;
-              <br />
-              while (curiosity) {"{"}
-              <br />
-              &nbsp; learn(); build(); improve();
-              <br />
-              {"}"}
-            </div>
+        <aside className="author-card" aria-labelledby="author-heading">
+          <div className="author-card-top">
+            <span className="eyebrow">
+              {t("Quem está por trás do código", "The person behind the code")}
+            </span>
+            <span aria-hidden="true">01 / KI</span>
           </div>
-          <div className="art-seal">
-            PYTHON
-            <br />× INTERFACES
-            <br />× AUTOMAÇÃO
+          <div className="author-monogram" aria-hidden="true">
+            <span>ki</span>
+            <i />
+            <small>PRESIDENTE PRUDENTE / SP</small>
           </div>
-          <span className="art-footnote">
-            {t("Entre aprender e fazer.", "Between learning and making.")}
-          </span>
-        </div>
+          <div className="author-story">
+            <h2 id="author-heading">{t("Prazer, Kauan.", "Hi, I’m Kauan.")}</h2>
+            <p>
+              {t(
+                "Meu primeiro projeto nasceu de uma rotina que tomava tempo: extrair relatórios. Automatizar esse trabalho virou o RelatPy — e abriu caminho para construir outras aplicações.",
+                "My first project grew out of a time-consuming routine: extracting reports. Automating that work became RelatPy — and opened the way to building other applications.",
+              )}
+            </p>
+            <p>
+              {t(
+                "Hoje, conecto o que aprendo em T.I. na Univesp a projetos de automação, APIs e interfaces.",
+                "Today, I connect what I learn studying IT at Univesp to automation, API and interface projects.",
+              )}
+            </p>
+          </div>
+          <div className="author-signoff">
+            <span>Kauan Inacio</span>
+            <a href="#trajetoria">{t("Minha trajetória", "My journey")} ↗</a>
+          </div>
+        </aside>
       </div>
       <div className="hero-bottom-rule">
         <span>PYTHON / FASTAPI / REACT / TYPESCRIPT / SQL</span>
