@@ -1,27 +1,36 @@
 import { useState } from "react";
 import { businessModules, demoJobs, jobFilters, skills } from "../data/demos";
 import type { BusinessModuleId, JobFilter, SkillId } from "../data/demos";
+import { useLanguage } from "../editorial/Language";
 
 export function CareerDemo() {
+  const { t, locale } = useLanguage();
   const [filter, setFilter] = useState<JobFilter>("all");
   const visibleJobs = demoJobs.filter(
     (job) => filter === "all" || job.category === filter,
   );
-
+  const labels = { all: "All", dev: "Development", ti: "IT" };
   return (
     <div className="demo">
-      <div className="demo-label">Explore a ideia / dados fictícios</div>
+      <div className="demo-label">
+        {t(
+          "Explore a ideia / dados fictícios",
+          "Explore the idea / fictional data",
+        )}
+      </div>
       <div className="career-workspace">
         <div className="workspace-top">
-          <span>CareerOS / espaço pessoal</span>
+          <span>CareerOS / {t("espaço pessoal", "personal workspace")}</span>
           <span aria-hidden="true">↗</span>
         </div>
         <div className="workspace-body">
-          <div className="workspace-title">Um próximo passo.</div>
+          <div className="workspace-title">
+            {t("Um próximo passo.", "A next step.")}
+          </div>
           <div
             className="job-filters"
             role="group"
-            aria-label="Filtrar vagas de demonstração"
+            aria-label={t("Filtrar vagas de demonstração", "Filter demo jobs")}
           >
             {jobFilters.map((option) => (
               <button
@@ -30,21 +39,38 @@ export function CareerDemo() {
                 aria-pressed={filter === option.id}
                 onClick={() => setFilter(option.id)}
               >
-                {option.label}
+                {locale === "pt" ? option.label : labels[option.id]}
               </button>
             ))}
           </div>
           {visibleJobs.map((job) => (
             <div className="demo-job" key={job.id}>
-              <strong>{job.title}</strong>
-              <small>Exemplo de oportunidade · dados fictícios</small>
-              <span>{job.skills}</span>
+              <strong>
+                {locale === "pt"
+                  ? job.title
+                  : job.category === "dev"
+                    ? "Junior Python Developer"
+                    : "Information Technology Internship"}
+              </strong>
+              <small>
+                {t(
+                  "Exemplo de oportunidade · dados fictícios",
+                  "Sample opportunity · fictional data",
+                )}
+              </small>
+              <span>
+                {locale === "pt"
+                  ? job.skills
+                  : job.category === "dev"
+                    ? "Python / APIs / SQL"
+                    : "Investigation / organization / learning"}
+              </span>
             </div>
           ))}
           <div className="demo-label job-count" aria-live="polite">
-            {visibleJobs.length}{" "}
-            {visibleJobs.length === 1 ? "oportunidade" : "oportunidades"} de
-            demonstração
+            {locale === "pt"
+              ? `${visibleJobs.length} ${visibleJobs.length === 1 ? "oportunidade" : "oportunidades"} de demonstração`
+              : `${visibleJobs.length} demo ${visibleJobs.length === 1 ? "opportunity" : "opportunities"}`}
           </div>
         </div>
       </div>
@@ -53,12 +79,31 @@ export function CareerDemo() {
 }
 
 export function NexusDemo() {
+  const { t, locale } = useLanguage();
   const [selected, setSelected] = useState<BusinessModuleId>("sales");
-  const activeModule = businessModules.find((item) => item.id === selected)!;
-
+  const current = businessModules.find((item) => item.id === selected)!;
+  const english = {
+    sales: [
+      "Sales",
+      "Sales: order rules connect to inventory and accounts receivable.",
+    ],
+    inventory: [
+      "Inventory",
+      "Inventory: products and movements support a consistent operation.",
+    ],
+    finance: [
+      "Finance",
+      "Finance: receivables share the same business context, with access controlled by role and organization.",
+    ],
+  };
   return (
     <div className="demo">
-      <div className="demo-label">Um pedido conecta várias decisões</div>
+      <div className="demo-label">
+        {t(
+          "Um pedido conecta várias decisões",
+          "One order connects several decisions",
+        )}
+      </div>
       <div className="network">
         <div className="network-main" aria-hidden="true">
           <span>NEXUS</span>
@@ -66,7 +111,7 @@ export function NexusDemo() {
         <div
           className="network-nodes"
           role="group"
-          aria-label="Explorar módulos do NEXUS"
+          aria-label={t("Explorar módulos do NEXUS", "Explore NEXUS modules")}
         >
           {businessModules.map((item) => (
             <button
@@ -75,12 +120,12 @@ export function NexusDemo() {
               aria-pressed={selected === item.id}
               onClick={() => setSelected(item.id)}
             >
-              {item.label}
+              {locale === "pt" ? item.label : english[item.id][0]}
             </button>
           ))}
         </div>
         <div className="network-detail" aria-live="polite">
-          {activeModule.description}
+          {locale === "pt" ? current.description : english[selected][1]}
         </div>
       </div>
     </div>
@@ -88,6 +133,7 @@ export function NexusDemo() {
 }
 
 export function FinanceDemo() {
+  const { t } = useLanguage();
   const [amount, setAmount] = useState("50");
   const [destination, setDestination] = useState("B");
   const sameAccount = destination === "A";
@@ -96,15 +142,26 @@ export function FinanceDemo() {
     amount.trim() === "" || !Number.isFinite(value) || value <= 0;
   const invalid = sameAccount || invalidAmount;
   const message = sameAccount
-    ? "Contas de origem e destino precisam ser diferentes."
+    ? t(
+        "Contas de origem e destino precisam ser diferentes.",
+        "Source and destination accounts must be different.",
+      )
     : invalidAmount
-      ? "O valor da transferência precisa ser positivo."
-      : "Regra atendida: contas diferentes e valor positivo.";
-
+      ? t(
+          "O valor da transferência precisa ser positivo.",
+          "The transfer amount must be positive.",
+        )
+      : t(
+          "Regra atendida: contas diferentes e valor positivo.",
+          "Rule satisfied: different accounts and a positive amount.",
+        );
   return (
     <div className="demo">
       <div className="demo-label">
-        Experimente uma regra / estudo de interface
+        {t(
+          "Experimente uma regra / estudo de interface",
+          "Try a rule / interface study",
+        )}
       </div>
       <div className="phone-scene">
         <div className="phone-backdrop" aria-hidden="true" />
@@ -112,12 +169,12 @@ export function FinanceDemo() {
           <div className="phone-camera" aria-hidden="true" />
           <div className="phone-brand">NEXA FINANCE</div>
           <h3>
-            Precisão começa
+            {t("Precisão começa", "Precision starts")}
             <br />
-            nos detalhes.
+            {t("nos detalhes.", "with the details.")}
           </h3>
           <label>
-            Valor de demonstração (R$)
+            {t("Valor de demonstração (R$)", "Demo amount (BRL)")}
             <input
               type="number"
               inputMode="decimal"
@@ -130,15 +187,15 @@ export function FinanceDemo() {
             />
           </label>
           <label>
-            Transferir da conta A para
+            {t("Transferir da conta A para", "Transfer from account A to")}
             <select
               value={destination}
               aria-invalid={sameAccount}
               aria-describedby="finance-rule"
               onChange={(event) => setDestination(event.target.value)}
             >
-              <option value="B">Conta B</option>
-              <option value="A">Conta A</option>
+              <option value="B">{t("Conta B", "Account B")}</option>
+              <option value="A">{t("Conta A", "Account A")}</option>
             </select>
           </label>
           <div
@@ -149,9 +206,12 @@ export function FinanceDemo() {
             {message}
           </div>
           <div className="phone-note">
-            Demonstração local de validação.
+            {t("Demonstração local de validação.", "Local validation demo.")}
             <br />
-            Não realiza operações financeiras.
+            {t(
+              "Não realiza operações financeiras.",
+              "No financial transactions are performed.",
+            )}
           </div>
         </div>
       </div>
@@ -160,24 +220,48 @@ export function FinanceDemo() {
 }
 
 export function Skills() {
+  const { t, locale } = useLanguage();
   const [selected, setSelected] = useState<SkillId>("python");
-  const activeSkill = skills.find((item) => item.id === selected)!;
-
+  const current = skills.find((item) => item.id === selected)!;
+  const english: Record<SkillId, string> = {
+    python:
+      "Python connects RelatPy automation to API development in CareerOS and NEXUS.",
+    react:
+      "React and TypeScript power the NEXUS interface and this portfolio. CareerOS uses React in its authentication module.",
+    sql: "PostgreSQL, SQLAlchemy and migrations organize the backend data layer.",
+    kotlin:
+      "In Nexa Finance, Kotlin supports financial domain rules and the Android foundation in Jetpack Compose.",
+    quality:
+      "Automated tests, Git and validation support development. Each demonstration links to inspectable repository evidence.",
+  };
+  const links: Record<SkillId, string> = {
+    python:
+      "https://github.com/hik4s/RelatPy-Generic-Example/blob/portfolio/public-release/core/executor.py",
+    react: "https://github.com/hik4s/NEXUS/blob/main/frontend/src/App.tsx",
+    sql: "https://github.com/hik4s/NEXUS/tree/main/backend/alembic/versions",
+    kotlin: "https://github.com/hik4s/Nexa",
+    quality:
+      "https://github.com/hik4s/NEXUS/blob/main/frontend/e2e/portfolio-flow.spec.ts",
+  };
   return (
     <section
       className="skills-section"
-      aria-label="Conhecimentos com evidências"
+      aria-label={t("Conhecimentos com evidências", "Skills with evidence")}
     >
-      <div className="mono">Ferramentas que encontram aplicação.</div>
+      <div className="section-topline">
+        <span className="eyebrow">
+          03 / {t("Ferramentas com aplicação", "Tools in practice")}
+        </span>
+      </div>
       <h2>
-        O que uso.
+        {t("O que uso.", "What I use.")}
         <br />
-        <em>Onde aplico.</em>
+        <em>{t("Onde aplico.", "Where I apply it.")}</em>
       </h2>
       <div
         className="skill-buttons"
         role="group"
-        aria-label="Explorar conhecimentos"
+        aria-label={t("Explorar conhecimentos", "Explore skills")}
       >
         {skills.map((skill) => (
           <button
@@ -186,13 +270,23 @@ export function Skills() {
             aria-pressed={selected === skill.id}
             onClick={() => setSelected(skill.id)}
           >
-            {skill.label}
+            {locale === "en" && skill.id === "quality"
+              ? "assert quality"
+              : skill.label}
           </button>
         ))}
       </div>
       <div className="skill-evidence" aria-live="polite">
-        {activeSkill.evidence}
+        {locale === "pt" ? current.evidence : english[selected]}
       </div>
+      <a
+        className="text-link"
+        href={links[selected]}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t("Conferir no código", "Inspect the source")} ↗
+      </a>
     </section>
   );
 }

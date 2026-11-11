@@ -6,11 +6,16 @@ import brand3 from "../assets/relatpy-3.svg";
 import brand4 from "../assets/símbolo-4.svg";
 import brand5 from "../assets/nexer-5.svg";
 import type { ProjectId } from "../data/projects";
+import { useLanguage } from "../editorial/Language";
 export function Brand({ id }: { id: ProjectId }) {
+  const { t } = useLanguage();
   switch (id) {
     case "relatpy":
       return (
-        <div className="brand-scene" aria-label="Marca RelatPy">
+        <div
+          className="brand-scene"
+          aria-label={t("Marca RelatPy", "RelatPy brand")}
+        >
           <div className="brand-stage" data-logo="relatpy">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +23,7 @@ export function Brand({ id }: { id: ProjectId }) {
               viewBox="0 0 256 256"
               role="img"
               className="brand-master"
-              aria-label="Símbolo RelatPy"
+              aria-label={t("Símbolo RelatPy", "RelatPy symbol")}
             >
               <title>{"RelatPy"}</title>
               <g fill="#f0f3f1">
@@ -38,7 +43,10 @@ export function Brand({ id }: { id: ProjectId }) {
       );
     case "career":
       return (
-        <div className="brand-scene" aria-label="Marca CareerOS">
+        <div
+          className="brand-scene"
+          aria-label={t("Marca CareerOS", "CareerOS brand")}
+        >
           <div className="brand-stage" data-logo="career">
             <div
               className="auth-transition-mark logo-assembly"
@@ -462,10 +470,13 @@ export function Brand({ id }: { id: ProjectId }) {
       );
     case "nexus":
       return (
-        <div className="brand-scene" aria-label="Marca NEXUS">
+        <div
+          className="brand-scene"
+          aria-label={t("Marca NEXUS", "NEXUS brand")}
+        >
           <div className="brand-stage" data-logo="nexus">
             <div className="brand-orbit"></div>
-            <img src={brand0} alt="Símbolo NEXUS" />
+            <img src={brand0} alt={t("Símbolo NEXUS", "NEXUS symbol")} />
           </div>
           <div className="brand-name">
             <img src={brand1} alt="NEXUS" />
@@ -475,14 +486,17 @@ export function Brand({ id }: { id: ProjectId }) {
       );
     case "nexa":
       return (
-        <div className="brand-scene" aria-label="Marca Nexa Finance">
+        <div
+          className="brand-scene"
+          aria-label={t("Marca Nexa Finance", "Nexa Finance brand")}
+        >
           <div className="brand-stage" data-logo="nexa">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 256 256"
               role="img"
               className="brand-master"
-              aria-label="Símbolo Nexa Finance"
+              aria-label={t("Símbolo Nexa Finance", "Nexa Finance symbol")}
             >
               <title>{"Nexa Finance — símbolo"}</title>
               <g fill="#5A1D2A">
@@ -499,10 +513,22 @@ export function Brand({ id }: { id: ProjectId }) {
       );
     case "nexer":
       return (
-        <div className="brand-scene" aria-label="Nexer — identidade Percurso">
+        <div
+          className="brand-scene"
+          aria-label={t(
+            "Nexer — identidade Percurso",
+            "Nexer — Percurso identity",
+          )}
+        >
           <div className="brand-stage" data-logo="nexer">
             <div className="brand-orbit"></div>
-            <img src={brand4} alt="Símbolo N do Nexer — Percurso" />
+            <img
+              src={brand4}
+              alt={t(
+                "Símbolo N do Nexer — Percurso",
+                "Nexer N symbol — Percurso",
+              )}
+            />
           </div>
           <div className="brand-name">
             <img src={brand5} alt="Nexer" />

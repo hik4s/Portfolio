@@ -1,18 +1,25 @@
-# Kauan · Portfólio
+# Kauan / Portfólio editorial
 
-Portfólio pessoal com projetos de desenvolvimento full stack, automação e aplicações Android.
-Construído com **React, TypeScript e Vite**, com CSS próprio e demonstrações locais interativas.
+Portfólio de desenvolvimento de software, Python e automação. Uma direção editorial
+em papel e terracota, com cinco estudos de caso, decisões técnicas ligadas ao código,
+demonstrações interativas e um laboratório de validação CSV inteiramente local.
 
-## Executar
+**React · TypeScript · Vite · CSS próprio · Vitest**
 
-Requisito: **Node.js 24+** e npm.
+Esta é a alternativa `feat/editorial-portfolio`, baseada em `feat/react-typescript`.
+A versão anterior permanece na branch de origem. A main e a hospedagem não são
+alteradas por esta proposta.
+
+## Executar e verificar
+
+Requer Node.js 24+ e npm.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Abra o endereço exibido pelo Vite. Para validar e gerar os arquivos de produção:
+Use o endereço exibido pelo Vite.
 
 ```bash
 npm test
@@ -20,50 +27,98 @@ npm run build
 npm run preview
 ```
 
-`npm run typecheck` executa somente a verificação de tipos. `npm run test:watch` mantém os testes ativos durante o desenvolvimento.
+`npm run typecheck` verifica os tipos; `npm run test:watch` acompanha os testes.
+O build estático é produzido em `dist/`. O workflow `Portfolio checks` executa
+instalação reproduzível, testes e build em pushes/PRs; não realiza deploy.
 
-## Organização
+## Jornada e conteúdo
+
+- Apresentação, projetos e contato com currículo PDF original de 09/11/2026.
+- Casos do RelatPy, CareerOS, NEXUS, Nexa Finance e Nexer, com escopo e limitações.
+- Exploração das decisões, referências ao código e captura real do NEXUS.
+- Filtros de vagas e validação financeira ilustrativos, identificados como demos.
+- Laboratório CSV: amostra sintética, arquivo local e relatório para download.
+- Competências com evidências, processo de trabalho, uso de IA e trajetória.
+- Português/inglês, preferência local e navegação por teclado.
+
+Não há backend, banco ou serviço pago necessário para executar o portfólio.
+As fontes vêm do Google Fonts, com fontes de sistema como alternativa.
+JavaScript é necessário. As aplicações externas têm seus próprios requisitos.
+
+## Estrutura
 
 | Caminho | Responsabilidade |
 | --- | --- |
-| `src/App.tsx` | Composição da página e ordem das seções |
-| `src/data/projects.ts` | Dados tipados dos cinco projetos: textos, links e tecnologias |
-| `src/data/demos.ts` | Dados fictícios das demonstrações e evidências das tecnologias |
-| `src/components/ProjectSection.tsx` | Apresentação reutilizável de um projeto |
-| `src/components/Demos.tsx` | Filtros de vagas, módulos de negócio, validação financeira e conhecimentos |
-| `src/components/Brand.tsx` e `src/assets/` | Identidades visuais e SVGs locais |
-| `src/components/StaticSections.tsx` | Abertura, navegação, trajetória e contato |
-| `src/hooks/usePortfolioMotion.ts` | Animações de apresentação, observers e limpeza dos efeitos |
-| `src/styles/` | Estilos próprios, identidade visual e regras responsivas |
+| `src/App.tsx` | Composição das páginas, destinos e foco da navegação |
+| `src/editorial/Language.tsx` | Contexto PT/EN, preferência e idioma do documento |
+| `src/editorial/useRoute.ts` | Rotas hash, links profundos e histórico |
+| `src/editorial/Navigation.tsx` | Menu fixo, seção atual, progresso e currículo |
+| `src/editorial/ProjectChapters.tsx` | Índice e capítulos dos cinco projetos |
+| `src/editorial/CasePage.tsx` | Desafio, contribuição, decisões, resultados e evidências |
+| `src/data/cases.ts` | Conteúdo tipado PT/EN, links e limites de cada projeto |
+| `src/components/Demos.tsx` | Demonstrações interativas e conhecimentos |
+| `src/components/CsvLab.tsx` | Carregamento, estados, resultados e exportação CSV |
+| `src/lib/csv.ts` | Parser, regras, limites e proteção da exportação |
+| `src/components/Brand.tsx`, `src/assets/` | Identidades visuais dos projetos |
+| `src/styles/editorial.css` | Layout editorial e responsividade |
+| `src/styles/portfolio.css` | Estilos compartilhados de marcas e demonstrações |
+| `public/assets/` | Currículo, captura real, favicon e imagem de compartilhamento |
 
-Para atualizar um projeto, edite `src/data/projects.ts`. Os títulos com composição visual estão em `ProjectHeading.tsx`. Para adicionar um novo projeto, inclua seu ID, os dados, a marca e a demonstração correspondente.
+Atualize os casos em `src/data/cases.ts`. Os textos das demais seções ficam junto
+aos componentes editoriais, com versões PT/EN. O currículo oferecido continua em
+português em ambos os idiomas.
 
-## Projetos apresentados
+## Rotas sem configuração de servidor
 
-- **RelatPy:** automação de extração de relatórios com Python e Playwright.
-- **CareerOS:** busca de vagas e organização de candidaturas.
-- **NEXUS:** backend modular de gestão empresarial.
-- **Nexa Finance:** domínio financeiro e base Android em desenvolvimento.
-- **Nexer:** evolução da automação por gravação de ações, em desenvolvimento.
+- `/#inicio`, `/#experiencia`, `/#projetos`, `/#nexus`, `/#nexa`, `/#nexer`
+- `/#laboratorio`, `/#processo`, `/#trajetoria`, `/#contato`
+- `/#case/relatpy`, `/#case/career`, `/#case/nexus`, `/#case/nexa`, `/#case/nexer`
+- `/#case/nexus/decisoes` exemplifica um destino interno de caso.
 
-Os textos descrevem o estado informado no portfólio original; a migração não constitui auditoria desses repositórios. As vagas e operações financeiras da página são **demonstrações locais**, sem busca real ou movimentação de dinheiro.
+Hashes desconhecidos de caso oferecem recuperação para o início. Voltar/avançar
+funciona pelo histórico do navegador. A navegação move o foco para o destino;
+os efeitos respeitam movimento reduzido e removem observers ao desmontar.
 
-## Acessibilidade e movimento
+## Laboratório CSV
 
-Navegação por links com âncoras, foco visível, link para pular ao conteúdo, nomes acessíveis e avisos de atualização nas demonstrações. As animações respeitam `prefers-reduced-motion`. O conteúdo permanece visível caso as APIs de animação/observação não estejam disponíveis. O HTML usa `lang="pt-BR"`.
+Amostra sintética ou arquivo UTF-8 com cabeçalhos `id,equipe,inicio,fim`, em qualquer
+ordem, separados por vírgula ou ponto e vírgula. Campos com aspas, separadores e
+quebras de linha são aceitos. Datas ISO 8601 exigem segundos e fuso explícito,
+como `2026-03-01T10:00:00Z`.
 
-## Publicação
+Limites: **1 MiB, 5.000 registros e prévia de 100 linhas**. O relatório inclui os
+registros completos aceitos. As regras marcam campos vazios, datas inválidas,
+fim anterior ao início e IDs repetidos. Não há correção automática, cálculo de
+TMA ou validação regulatória. Células potencialmente interpretadas como fórmulas
+recebem proteção na exportação. Arquivos não são enviados para um servidor nem
+persistidos no armazenamento do navegador.
 
-O build produz `dist/`, uma página estática que pode ser hospedada em um serviço compatível com arquivos estáticos. Configuração:
+## Publicação estática e compartilhamento
 
-- Instalação: `npm ci`
-- Build: `npm run build`
-- Diretório de saída: `dist`
+- Build: `npm ci` seguido de `npm run build`.
+- Saída: `dist/`.
+- Os assets usam caminhos relativos e as rotas usam hashes, permitindo subdiretórios.
+- Ao definir a URL pública, configure `VITE_SITE_URL` com a URL completa da raiz
+  da aplicação (incluindo subdiretório, se houver). O build gera canonical,
+  `og:url` e endereço absoluto da imagem de compartilhamento.
+- Sem essa variável, não se inventa uma URL pública: o build contém imagem relativa.
+- A imagem 1200×630 está em `public/assets/social-card.png`; seu gerador opcional
+  `scripts/social-card.py` usa Pillow, dispensável para executar/buildar o site.
 
-Os assets usam caminhos relativos para permitir publicação em subdiretórios. Não há backend, banco de dados, variáveis secretas ou serviço pago obrigatório. As fontes são carregadas do Google Fonts; as fontes alternativas do sistema permitem ler a página caso esse serviço esteja indisponível. A aplicação depende de JavaScript habilitado.
+## Fontes e transparência
 
-## Referência original
+O conteúdo foi conferido nos READMEs e arquivos referenciados dos projetos.
+A captura `nexus-overview.png` vem de `hik4s/NEXUS/docs/ui-overview.png` e usa dados
+fictícios. Outros painéis desta página são ilustrações interativas, não capturas.
+Os tempos do RelatPy são relatos aproximados do currículo, sem benchmark público.
+Não são inventados usuários, taxas de sucesso, depoimentos, retrato ou vídeo.
 
-`portfolio-kauan.html` é a exportação original preservada, fora do build de produção. A aplicação atual renderiza componentes React diretamente, sem iframe, HTML injetado ou dependência do runtime de visualizações do ChatGPT.
+O HTML exportado original `portfolio-kauan.html` permanece fora do build como
+referência histórica. Detalhes da entrega: [docs/EDITORIAL.md](docs/EDITORIAL.md).
 
-Detalhes da migração e validações: [docs/MIGRATION.md](docs/MIGRATION.md).
+## English
+
+A static, bilingual portfolio with source-linked case studies, clearly labeled
+interactive demos, a local CSV validation lab and the original Portuguese résumé.
+Use Node.js 24+, `npm ci`, `npm run dev`; verify with `npm test` and `npm run build`.
+All CSV processing runs in the browser. No backend or paid service is required.
