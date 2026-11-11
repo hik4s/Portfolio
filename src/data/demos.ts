@@ -60,7 +60,7 @@ export const skills = [
     id: "react",
     label: "< React />",
     evidence:
-      "React aparece na construção de interfaces integradas a APIs no CareerOS. O Nexer também prevê uma interface em React e TypeScript.",
+      "React e TypeScript constroem a interface do NEXUS e deste portfólio. O CareerOS usa React no módulo de autenticação.",
   },
   {
     id: "sql",

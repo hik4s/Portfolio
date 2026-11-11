@@ -37,7 +37,7 @@ describe("portfólio completo", () => {
     expect(screen.getByText("2 oportunidades de demonstração")).toBeVisible();
     expect(
       screen.getByRole("heading", {
-        name: "Nexer. Automatizar a própria automação.",
+        name: "Do fluxo escrito à proposta de um fluxo registrado.",
       }),
     ).toBeVisible();
     expect(screen.getByText("Desenvolvimento Python Jr.")).toBeVisible();

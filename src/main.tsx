@@ -9,3 +9,5 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </StrictMode>,
 );
+import "./styles/editorial.css";
+import './styles/visual-polish.css';
