@@ -152,3 +152,12 @@ O controle Movimento reduz efeitos e rolagem suave; a preferência do sistema te
 prioridade. As animações são limpas ao trocar rota/idioma e recompostas no celular.
 O hook anterior permanece como referência histórica, fora da composição atual.
 Detalhes, evidências e limites: [docs/cinematic/VALIDATION.md](docs/cinematic/VALIDATION.md).
+
+## Nove efeitos tipográficos
+
+Digitação com cursor, iluminação progressiva, foco, impressão, onda, contorno
+preenchido, montagem, faixa de luz e transformação de palavras foram distribuídos
+por projetos e seções. Código permanece na abertura e no contato. Os efeitos
+executam uma vez por entrada/montagem, respeitam movimento reduzido e mantêm os
+nomes acessíveis completos. Mapa e validação em
+[docs/expressive-typography/VALIDATION.md](docs/expressive-typography/VALIDATION.md).

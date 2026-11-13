@@ -1,3 +1,4 @@
+import { MotionText } from "./MotionText";
 import { CodeText } from "./CodeText";
 import { useState } from "react";
 import { useLanguage } from "./Language";
@@ -157,10 +158,20 @@ export function ProcessSection() {
       </div>
       <div className="process-layout">
         <div>
-          <h2>
+          <h2
+            aria-label={t(
+              "Construir é também saber explicar.",
+              "Building also means being able to explain.",
+            )}
+          >
             {t("Construir é também", "Building also means")}
             <br />
-            <em>{t("saber explicar.", "being able to explain.")}</em>
+            <em>
+              <MotionText
+                text={t("saber explicar.", "being able to explain.")}
+                effect="light"
+              />
+            </em>
           </h2>
           <p>
             {t(
@@ -168,6 +179,14 @@ export function ProcessSection() {
               "A good demo shows the result. A good case study shows the choices that made it possible.",
             )}
           </p>
+          <div className="process-transformation">
+            <span>{t("Da ideia à", "From idea to")}</span>
+            <MotionText
+              effect="morph"
+              text={t("solução", "solution")}
+              stages={[t("ideia", "idea"), t("código", "code")]}
+            />
+          </div>
           <div
             className="process-tabs"
             role="group"
@@ -272,7 +291,10 @@ export function JourneySection() {
         <span className="eyebrow">05 / {t("Trajetória", "Journey")}</span>
       </div>
       <h2>
-        {t("O próximo passo começa", "The next step starts")}
+        <MotionText
+          text={t("O próximo passo começa", "The next step starts")}
+          effect="stamp"
+        />
         <br />
         <em>{t("com o que já construí.", "with what I have built.")}</em>
       </h2>

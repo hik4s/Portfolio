@@ -15,3 +15,5 @@ import "./styles/visual-polish.css";
 import "./styles/cinematic.css";
 
 import "./styles/restored-details.css";
+
+import "./styles/expressive-typography.css";

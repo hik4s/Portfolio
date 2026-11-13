@@ -1,3 +1,5 @@
+import { MotionText } from "./MotionText";
+import type { TextEffect } from "./MotionText";
 import { ProjectSequence } from "./ProjectSequence";
 import { Brand } from "../components/Brand";
 import type { CaseStudy } from "../data/cases";
@@ -30,7 +32,10 @@ export function ProjectIndex({ cases }: { cases: CaseStudy[] }) {
         </span>
       </div>
       <h2>
-        {t("Ideias que encontram", "Ideas that find")}
+        <MotionText
+          text={t("Ideias que encontram", "Ideas that find")}
+          effect="wave"
+        />
         <br />
         <em>{t("um lugar na prática.", "a place in practice.")}</em>
       </h2>
@@ -92,13 +97,20 @@ export function ProjectChapter({
             aria-label={item.headline}
             className="chapter-title"
           >
-            <span className="title-words" aria-hidden="true">
-              {item.headline.split(" ").map((word, i) => (
-                <span className="title-word-wrap" key={i}>
-                  <span className="title-word">{word}</span>{" "}
-                </span>
-              ))}
-            </span>
+            <MotionText
+              text={item.headline}
+              effect={
+                (
+                  [
+                    "typing",
+                    "focus",
+                    "glow",
+                    "outline",
+                    "assembly",
+                  ] as TextEffect[]
+                )[index]
+              }
+            />
             <span className="title-underline" aria-hidden="true" />
           </h2>
           <p className="chapter-summary">{item.summary}</p>

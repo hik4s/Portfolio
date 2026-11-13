@@ -1,3 +1,4 @@
+import { animateText } from "../motion/animateText";
 import { codeFrame } from "../lib/codeText";
 import { useEffect, useState } from "react";
 import type { RefObject } from "react";
@@ -166,50 +167,6 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
                 },
               },
             );
-            // Every chapter has its own typographic cadence; code returns only at contact.
-            const titleMoves = [
-              {
-                x: -30,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-                clipPath: "inset(0 100% 0 0)",
-              },
-              { x: 0, y: 45, rotate: 5, scale: 1, clipPath: "inset(0 0 0 0)" },
-              {
-                x: 0,
-                y: 10,
-                rotate: 0,
-                scale: 0.82,
-                clipPath: "inset(0 0 0 0)",
-              },
-              {
-                x: 0,
-                y: 30,
-                rotate: -4,
-                scale: 1,
-                clipPath: "inset(100% 0 0 0)",
-              },
-              {
-                x: 25,
-                y: 0,
-                rotate: 0,
-                scale: 1,
-                clipPath: "inset(0 100% 0 0)",
-              },
-            ];
-            gsap.from(q(".title-word"), {
-              ...titleMoves[index % titleMoves.length],
-              opacity: 0,
-              duration: 0.85,
-              stagger: index === 4 ? 0.11 : 0.055,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: q(".chapter-title")[0],
-                start: "top 88%",
-                once: true,
-              },
-            });
             gsap.from(q(".title-underline"), {
               scaleX: 0,
               transformOrigin: "left",
@@ -364,6 +321,9 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
               0.15,
             );
         }
+        // Attach text timelines after layout triggers: avoid refreshing incomplete
+        // text timelines while old once-only triggers are removed during remount.
+        animateText(root, desktop);
         // CSS hides nothing by default; refresh after fonts/images settle.
         let disposed = false;
         const refresh = () => {
