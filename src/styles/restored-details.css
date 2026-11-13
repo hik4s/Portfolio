@@ -122,3 +122,8 @@
     font-size: 42px;
   }
 }
+/* Keep the preference control clear of Netlify's production badge. */
+#entrelinhas-vivo.editorial .motion-toggle { left: 18px; right: auto; }
+@media (max-width: 799px) {
+  #entrelinhas-vivo.editorial .motion-toggle { left: 10px; }
+}
