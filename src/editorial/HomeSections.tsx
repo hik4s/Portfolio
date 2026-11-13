@@ -10,6 +10,15 @@ export function EditorialHero() {
       className="hero editorial-hero"
       aria-label={t("Apresentação", "Introduction")}
     >
+      <div className="hero-orbit" aria-hidden="true">
+        <svg viewBox="0 0 1200 900" fill="none">
+          <path
+            d="M-100 760 C500 920 210 0 750 150 S1400 650 940 740 S480 440 1400 280"
+            pathLength="1"
+          />
+        </svg>
+        <span className="orbit-note">KI / IDEAS INTO SYSTEMS</span>
+      </div>
       <div className="hero-kicker">
         <span className="status-dot" />
         {t(

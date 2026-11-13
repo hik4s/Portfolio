@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef } from "react";
 import { caseStudies } from "./data/cases";
 import { Skills } from "./components/Demos";
 import { CsvLab } from "./components/CsvLab";
-import { usePortfolioMotion } from "./hooks/usePortfolioMotion";
+import { useCinematicMotion } from "./hooks/useCinematicMotion";
 import { LanguageProvider, useLanguage } from "./editorial/Language";
 import { Navigation } from "./editorial/Navigation";
 import {
@@ -21,7 +21,7 @@ import type { Route } from "./editorial/useRoute";
 function Portfolio({ route }: { route: Route }) {
   const { locale, t } = useLanguage();
   const rootRef = useRef<HTMLDivElement>(null);
-  usePortfolioMotion(rootRef);
+  const { reduced, systemReduced, toggleMotion } = useCinematicMotion(rootRef);
   const cases = caseStudies[locale];
   useEffect(() => {
     const target =
@@ -39,7 +39,12 @@ function Portfolio({ route }: { route: Route }) {
     }
   }, [route]);
   return (
-    <div id="entrelinhas-vivo" className="editorial" ref={rootRef}>
+    <div
+      id="entrelinhas-vivo"
+      className="editorial cinematic"
+      data-motion={reduced ? "reduced" : "full"}
+      ref={rootRef}
+    >
       <a
         className="skip-link"
         href={
@@ -49,6 +54,29 @@ function Portfolio({ route }: { route: Route }) {
         {t("Pular para o conteúdo", "Skip to content")}
       </a>
       <Navigation />
+      <button
+        className="motion-toggle"
+        type="button"
+        onClick={toggleMotion}
+        disabled={systemReduced}
+        aria-pressed={reduced}
+        aria-label={
+          systemReduced
+            ? t(
+                "Animações reduzidas pelo sistema",
+                "Animations reduced by system",
+              )
+            : reduced
+              ? t("Ativar animações", "Enable animations")
+              : t("Reduzir animações", "Reduce animations")
+        }
+      >
+        <span aria-hidden="true">{reduced ? "Ⅱ" : "◉"}</span>{" "}
+        {t("Movimento", "Motion")}
+        <span className="motion-state">
+          {reduced ? t("reduzido", "reduced") : t("completo", "full")}
+        </span>
+      </button>
       {route.kind === "case" ? (
         <CasePage item={cases.find((item) => item.id === route.id)} />
       ) : (

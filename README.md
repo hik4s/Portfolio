@@ -4,7 +4,7 @@ Portfólio de desenvolvimento de software, Python e automação. Uma direção e
 em papel e terracota, com cinco estudos de caso, decisões técnicas ligadas ao código,
 demonstrações interativas e um laboratório de validação CSV inteiramente local.
 
-**React · TypeScript · Vite · CSS próprio · Vitest**
+**React · TypeScript · Vite · GSAP · CSS próprio · Vitest**
 
 Integração de `feat/react-typescript` e `feat/editorial-portfolio`, preservando o
 currículo e as atualizações da main.
@@ -139,3 +139,15 @@ A static, bilingual portfolio with source-linked case studies, clearly labeled
 interactive demos, a local CSV validation lab and the original Portuguese résumé.
 Use Node.js 24+, `npm ci`, `npm run dev`; verify with `npm test` and `npm run build`.
 All CSV processing runs in the browser. No backend or paid service is required.
+
+## Direção cinematográfica
+
+Abertura em camadas, linhas editoriais, pontes com percurso SVG e sequências
+ilustrativas próprias para os cinco projetos. GSAP/ScrollTrigger acompanham a
+rolagem nativa; nenhum trecho exige pinning ou uma rolagem artificial.
+Os casos entram com uma passagem de papel e sua identidade visual.
+
+O controle Movimento reduz efeitos e rolagem suave; a preferência do sistema tem
+prioridade. As animações são limpas ao trocar rota/idioma e recompostas no celular.
+O hook anterior permanece como referência histórica, fora da composição atual.
+Detalhes, evidências e limites: [docs/cinematic/VALIDATION.md](docs/cinematic/VALIDATION.md).

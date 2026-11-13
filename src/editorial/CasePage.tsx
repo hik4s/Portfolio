@@ -32,6 +32,7 @@ export function CasePage({ item }: { item?: CaseStudy }) {
     );
   return (
     <main id="conteudo" className={"case-page case-" + item.id} tabIndex={-1}>
+      <div className="case-curtain" aria-hidden="true" />
       <section className="case-hero">
         <a
           aria-label={t("Voltar aos projetos", "Back to projects")}
