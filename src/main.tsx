@@ -10,4 +10,6 @@ createRoot(document.getElementById("root")!).render(
   </StrictMode>,
 );
 import "./styles/editorial.css";
-import './styles/visual-polish.css';
+import "./styles/visual-polish.css";
+
+import "./styles/cinematic.css";

@@ -62,7 +62,7 @@ export function ChapterBridge({
         <svg viewBox="0 0 500 200" fill="none" preserveAspectRatio="none">
           <path d="M1 1C1 90 499 45 499 200" pathLength="1" />
         </svg>
-        <span />
+        <span className="bridge-traveler" />
       </div>
       <a
         className="bridge-link"

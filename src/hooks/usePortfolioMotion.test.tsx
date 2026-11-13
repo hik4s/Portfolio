@@ -1,6 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import App from "../App";
+import { useRef } from "react";
+import { usePortfolioMotion } from "./usePortfolioMotion";
+function App() {
+  const ref = useRef<HTMLDivElement>(null);
+  usePortfolioMotion(ref);
+  return (
+    <div ref={ref}>
+      <span data-text="Curiosidade">Curiosidade</span>
+    </div>
+  );
+}
 
 // jsdom does not implement these browser presentation APIs.
 afterEach(() => vi.unstubAllGlobals());

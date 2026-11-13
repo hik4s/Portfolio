@@ -1,0 +1,354 @@
+/* Motion is progressive enhancement. All information exists in the resting layout. */
+#entrelinhas-vivo.cinematic {
+  overflow-x: clip;
+}
+#entrelinhas-vivo.cinematic .editorial-hero {
+  perspective: 1400px;
+  isolation: isolate;
+  overflow: clip;
+}
+#entrelinhas-vivo.cinematic .hero-copy,
+#entrelinhas-vivo.cinematic .author-card {
+  position: relative;
+  z-index: 1;
+}
+#entrelinhas-vivo.cinematic .author-card {
+  transform-origin: 50% 65%;
+  box-shadow:
+    12px 24px 60px #54371d15,
+    1px 1px 0 #fff9 inset;
+}
+#entrelinhas-vivo.cinematic .hero-orbit {
+  position: absolute;
+  inset: -4% -5%;
+  pointer-events: none;
+  z-index: -1;
+}
+.hero-orbit svg {
+  width: 100%;
+  height: 100%;
+}
+.hero-orbit path {
+  stroke: #a83e2933;
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.orbit-note {
+  position: absolute;
+  bottom: 10%;
+  right: 7%;
+  font:
+    9px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.25em;
+  color: #a83e2970;
+  writing-mode: vertical-rl;
+}
+#entrelinhas-vivo.cinematic .project-chapter {
+  isolation: isolate;
+  overflow: clip;
+}
+.chapter-watermark {
+  position: absolute;
+  right: -1%;
+  top: 0;
+  font:
+    400 clamp(180px, 26vw, 400px)/1 "Instrument Serif",
+    Georgia,
+    serif;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: -1;
+  letter-spacing: -0.09em;
+}
+#entrelinhas-vivo.cinematic .chapter-product.reveal {
+  transition: none;
+}
+#entrelinhas-vivo.cinematic .chapter-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 16%, transparent);
+}
+#entrelinhas-vivo.cinematic .chapter-grid {
+  margin-top: 52px;
+}
+#entrelinhas-vivo.cinematic .project-sequence {
+  margin: 76px 0 40px;
+  padding: 28px 0 0;
+  border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+}
+.project-sequence figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  text-transform: uppercase;
+  font:
+    10px/1.6 "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.12em;
+  opacity: 0.65;
+}
+.sequence-stage {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7%;
+  position: relative;
+  padding: 48px 4% 28px;
+  perspective: 900px;
+}
+.sequence-track {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  top: 15%;
+  left: 0;
+  pointer-events: none;
+}
+.sequence-track path {
+  stroke: currentColor;
+  opacity: 0.4;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 1;
+}
+.sequence-card {
+  position: relative;
+  background: #f1eadc;
+  color: #34342c;
+  border: 1px solid #34342c20;
+  box-shadow: 7px 10px 0 #0000000a;
+  min-height: 180px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.sequence-card:nth-of-type(2) {
+  background: #dfceb0;
+  transform: translateY(-12px);
+}
+.sequence-number {
+  font:
+    9px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+}
+.sequence-symbol {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font:
+    italic 38px "Instrument Serif",
+    Georgia,
+    serif;
+  color: #a83e29;
+}
+.sequence-card strong {
+  margin-top: auto;
+  max-width: 20ch;
+  font-size: clamp(13px, 1.3vw, 19px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.sequence-rule {
+  display: block;
+  height: 2px;
+  background: #a83e29;
+  width: 38%;
+}
+#entrelinhas-vivo.cinematic .project-sequence > p {
+  font:
+    10px/1.7 "IBM Plex Mono",
+    monospace;
+  opacity: 0.55;
+  margin-top: 10px;
+}
+.sequence-career .sequence-card {
+  border-radius: 8px;
+}
+.sequence-career .sequence-card:nth-of-type(2) {
+  background: #ccd3e6;
+}
+.sequence-nexus .sequence-card {
+  background: #e9edf0;
+}
+.sequence-nexus .sequence-card:nth-of-type(2) {
+  background: #c7dfdb;
+}
+.sequence-nexa .sequence-card {
+  background: #fcf8ef;
+  border-top: 3px solid #742438;
+}
+.sequence-nexer .sequence-card {
+  background: #28282e;
+  color: #f1eadc;
+}
+.sequence-nexer .sequence-card:nth-of-type(2) {
+  background: #3d3545;
+}
+#entrelinhas-vivo.cinematic .chapter-bridge {
+  min-height: 390px;
+  isolation: isolate;
+}
+#entrelinhas-vivo.cinematic .bridge-thread {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+#entrelinhas-vivo.cinematic .bridge-thread svg {
+  width: 100%;
+  height: 100%;
+}
+#entrelinhas-vivo.cinematic .bridge-thread path {
+  animation: none !important;
+  stroke-dasharray: 1;
+  stroke-width: 0.6;
+  opacity: 0.45;
+}
+#entrelinhas-vivo.cinematic .bridge-traveler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 9px #ffffff0a;
+}
+#entrelinhas-vivo.cinematic .bridge-count {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(60px, 10vw, 150px);
+  font-weight: 400;
+  opacity: 0.7;
+}
+#entrelinhas-vivo.cinematic .bridge-link {
+  position: relative;
+  z-index: 1;
+}
+#entrelinhas-vivo.cinematic .bridge-link strong {
+  font-size: clamp(32px, 4vw, 65px);
+}
+.motion-toggle {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 80;
+  background: #f5efdfed;
+  color: #302c24;
+  border: 1px solid #302c2430;
+  border-radius: 30px;
+  box-shadow: 0 4px 16px #0001;
+  padding: 11px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  backdrop-filter: blur(10px);
+}
+.motion-state {
+  opacity: 0.55;
+  border-left: 1px solid #302c2430;
+  padding-left: 8px;
+}
+#entrelinhas-vivo.cinematic .case-page {
+  position: relative;
+  isolation: isolate;
+}
+.case-curtain {
+  position: fixed;
+  inset: 0;
+  background: #e5d4b6;
+  pointer-events: none;
+  z-index: 70;
+  transform: scaleY(0);
+}
+.case-nexus .case-curtain {
+  background: #263b42;
+}
+.case-career .case-curtain {
+  background: #414b72;
+}
+.case-nexa .case-curtain {
+  background: #b68184;
+}
+#entrelinhas-vivo.cinematic .case-hero {
+  overflow: clip;
+}
+#entrelinhas-vivo.cinematic .case-heading {
+  transform-origin: 50% 0;
+}
+@media (min-width: 1000px) {
+  #entrelinhas-vivo.cinematic .editorial-hero {
+    min-height: 92svh;
+  }
+}
+@media (max-width: 799px) {
+  #entrelinhas-vivo.cinematic .chapter-grid {
+    margin-top: 30px;
+  }
+  .sequence-stage {
+    gap: 12px;
+    padding: 32px 0 22px;
+  }
+  .sequence-card {
+    min-height: 150px;
+    padding: 12px;
+    gap: 12px;
+    box-shadow: 3px 5px 0 #0000000a;
+  }
+  .sequence-card strong {
+    font-size: 12px;
+  }
+  .sequence-symbol {
+    font-size: 25px;
+    top: 24px;
+    right: 8px;
+  }
+  .sequence-number {
+    font-size: 8px;
+  }
+  .project-sequence figcaption {
+    font-size: 8px;
+    letter-spacing: 0.05em;
+  }
+  #entrelinhas-vivo.cinematic .project-sequence {
+    margin-top: 44px;
+  }
+  #entrelinhas-vivo.cinematic .chapter-bridge {
+    min-height: 290px;
+  }
+  .motion-toggle {
+    bottom: 10px;
+    right: 10px;
+    font-size: 9px;
+    padding: 10px 12px;
+  }
+  .motion-state {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #entrelinhas-vivo.cinematic *,
+  #entrelinhas-vivo.cinematic *::before,
+  #entrelinhas-vivo.cinematic *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .case-curtain {
+    display: none;
+  }
+}
+#entrelinhas-vivo.cinematic[data-motion="reduced"] *,
+#entrelinhas-vivo.cinematic[data-motion="reduced"] *::before,
+#entrelinhas-vivo.cinematic[data-motion="reduced"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}

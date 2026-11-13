@@ -1,3 +1,4 @@
+import { ProjectSequence } from "./ProjectSequence";
 import { Brand } from "../components/Brand";
 import type { CaseStudy } from "../data/cases";
 import { useLanguage } from "./Language";
@@ -69,6 +70,9 @@ export function ProjectChapter({
       className={`project-chapter ${classes[item.id]} chapter-${item.id}`}
       aria-labelledby={"project-title-" + item.id}
     >
+      <span className="chapter-watermark" aria-hidden="true">
+        0{index + 1}
+      </span>
       <div className="chapter-header">
         <span className="eyebrow">
           0{index + 1} / {item.category}
@@ -145,6 +149,7 @@ export function ProjectChapter({
           <ProjectVisual id={item.id} screenshot={item.id === "nexus"} />
         </div>
       </div>
+      <ProjectSequence id={item.id} />
       <div className="chapter-footer-note">
         <span>{t("O recorte", "The scope")}</span>
         <p>{item.limitation}</p>
