@@ -1,3 +1,4 @@
+import { codeFrame } from "../lib/codeText";
 import { useEffect, useState } from "react";
 import type { RefObject } from "react";
 import { gsap } from "gsap";
@@ -48,6 +49,31 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
         const desktop = !!context.conditions?.desktop;
         const select = gsap.utils.selector(root);
         root.dataset.cinematic = "active";
+        const codeTitles = Array.from(
+          root.querySelectorAll<HTMLElement>("[data-code-text]"),
+        );
+        codeTitles.forEach((element) => {
+          const text = element.dataset.codeText!;
+          const state = { progress: 0 };
+          let lastTick = -1;
+          gsap.to(state, {
+            progress: 1,
+            duration: 2.8,
+            ease: "none",
+            delay: element.closest(".hero") ? 0.25 : 0,
+            scrollTrigger: { trigger: element, start: "top 94%", once: true },
+            onUpdate: () => {
+              const tick = Math.floor(state.progress * 30);
+              if (tick !== lastTick) {
+                lastTick = tick;
+                element.textContent = codeFrame(text, state.progress);
+              }
+            },
+            onComplete: () => {
+              element.textContent = text;
+            },
+          });
+        });
         const hero = select(".editorial-hero")[0];
         if (hero) {
           const opening = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -125,7 +151,7 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
             const q = gsap.utils.selector(chapter);
             gsap.from(
               q(
-                ".chapter-header, .chapter-narrative > h2, .chapter-summary, .tech-chips, .chapter-actions",
+                ".chapter-header, .chapter-summary, .tech-chips, .chapter-actions",
               ),
               {
                 y: desktop ? 45 : 20,
@@ -140,6 +166,61 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
                 },
               },
             );
+            // Every chapter has its own typographic cadence; code returns only at contact.
+            const titleMoves = [
+              {
+                x: -30,
+                y: 0,
+                rotate: 0,
+                scale: 1,
+                clipPath: "inset(0 100% 0 0)",
+              },
+              { x: 0, y: 45, rotate: 5, scale: 1, clipPath: "inset(0 0 0 0)" },
+              {
+                x: 0,
+                y: 10,
+                rotate: 0,
+                scale: 0.82,
+                clipPath: "inset(0 0 0 0)",
+              },
+              {
+                x: 0,
+                y: 30,
+                rotate: -4,
+                scale: 1,
+                clipPath: "inset(100% 0 0 0)",
+              },
+              {
+                x: 25,
+                y: 0,
+                rotate: 0,
+                scale: 1,
+                clipPath: "inset(0 100% 0 0)",
+              },
+            ];
+            gsap.from(q(".title-word"), {
+              ...titleMoves[index % titleMoves.length],
+              opacity: 0,
+              duration: 0.85,
+              stagger: index === 4 ? 0.11 : 0.055,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: q(".chapter-title")[0],
+                start: "top 88%",
+                once: true,
+              },
+            });
+            gsap.from(q(".title-underline"), {
+              scaleX: 0,
+              transformOrigin: "left",
+              duration: 1.1,
+              ease: "power2.inOut",
+              scrollTrigger: {
+                trigger: q(".chapter-title")[0],
+                start: "top 85%",
+                once: true,
+              },
+            });
             gsap.from(q(".chapter-product"), {
               y: desktop ? 90 : 35,
               rotate: index % 2 ? 3 : -3,
@@ -294,6 +375,9 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
         return () => {
           disposed = true;
           delete root.dataset.cinematic;
+          codeTitles.forEach((element) => {
+            element.textContent = element.dataset.codeText ?? "";
+          });
           images.forEach((image) => image.removeEventListener("load", refresh));
         };
       },
