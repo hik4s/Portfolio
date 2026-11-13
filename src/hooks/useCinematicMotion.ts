@@ -62,7 +62,12 @@ export function useCinematicMotion(rootRef: RefObject<HTMLElement | null>) {
             duration: 2.8,
             ease: "none",
             delay: element.closest(".hero") ? 0.25 : 0,
-            scrollTrigger: { trigger: element, start: "top 94%", once: true },
+            scrollTrigger: {
+              trigger: element,
+              start: "top 94%",
+              end: "bottom 15%",
+              toggleActions: "restart none restart none",
+            },
             onUpdate: () => {
               const tick = Math.floor(state.progress * 30);
               if (tick !== lastTick) {
