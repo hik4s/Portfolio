@@ -1,3 +1,4 @@
+import { MotionText } from "./MotionText";
 import type { CaseStudy } from "../data/cases";
 import { Brand } from "../components/Brand";
 import { ProjectVisual } from "./ProjectVisual";
@@ -47,8 +48,10 @@ export function CasePage({ item }: { item?: CaseStudy }) {
               {item.category} / {item.status}
             </span>
             <h1>
-              {item.name}
-              <em>{item.headline}</em>
+              <MotionText text={item.name} effect="outline" />
+              <em>
+                <MotionText text={item.headline} effect="focus" />
+              </em>
             </h1>
             <p>{item.summary}</p>
             <div className="tech-chips">
@@ -107,8 +110,7 @@ export function CasePage({ item }: { item?: CaseStudy }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t("Ver captura completa do NEXUS", "View full NEXUS screenshot")}{" "}
-            ↗
+            {t("Ver captura completa do NEXUS", "View full NEXUS screenshot")} ↗
           </a>
         )}
       </section>

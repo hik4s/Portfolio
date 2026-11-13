@@ -1,3 +1,4 @@
+import { MotionText } from "./editorial/MotionText";
 import { Fragment, useEffect, useRef } from "react";
 import { caseStudies } from "./data/cases";
 import { Skills } from "./components/Demos";
@@ -112,10 +113,13 @@ function Portfolio({ route }: { route: Route }) {
                 {t("Um arquivo entra.", "A file goes in.")}
                 <br />
                 <em>
-                  {t(
-                    "As inconsistências aparecem.",
-                    "Inconsistencies stand out.",
-                  )}
+                  <MotionText
+                    effect="light"
+                    text={t(
+                      "As inconsistências aparecem.",
+                      "Inconsistencies stand out.",
+                    )}
+                  />
                 </em>
               </h2>
               <p>

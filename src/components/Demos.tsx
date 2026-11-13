@@ -1,3 +1,4 @@
+import { MotionText } from "../editorial/MotionText";
 import { useState } from "react";
 import { businessModules, demoJobs, jobFilters, skills } from "../data/demos";
 import type { BusinessModuleId, JobFilter, SkillId } from "../data/demos";
@@ -256,7 +257,12 @@ export function Skills() {
       <h2>
         {t("O que uso.", "What I use.")}
         <br />
-        <em>{t("Onde aplico.", "Where I apply it.")}</em>
+        <em>
+          <MotionText
+            text={t("Onde aplico.", "Where I apply it.")}
+            effect="wave"
+          />
+        </em>
       </h2>
       <div
         className="skill-buttons"

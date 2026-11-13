@@ -1,3 +1,4 @@
+import { MotionText } from "./MotionText";
 import { useLanguage } from "./Language";
 export function Updates() {
   const { t } = useLanguage();
@@ -6,7 +7,12 @@ export function Updates() {
       <span className="eyebrow">
         {t("Caderno de evolução", "Development journal")}
       </span>
-      <h2>{t("Um portfólio em construção.", "A portfolio in progress.")}</h2>
+      <h2>
+        <MotionText
+          text={t("Um portfólio em construção.", "A portfolio in progress.")}
+          effect="stamp"
+        />
+      </h2>
       <div>
         <article>
           <time dateTime="2026-11-10">10.11.2026</time>
