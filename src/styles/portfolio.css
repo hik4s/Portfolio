@@ -1,0 +1,915 @@
+/* Shared brand assets and interactive product demonstrations. */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Inter:wght@400;500;600&display=swap");
+
+#entrelinhas-vivo .brand-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  min-height: 250px;
+  margin: 0 0 34px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  padding: 0 0 28px;
+  overflow: hidden;
+}
+
+#entrelinhas-vivo .brand-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 230px;
+  height: 230px;
+  flex: 0 0 230px;
+}
+
+#entrelinhas-vivo .brand-stage > img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+#entrelinhas-vivo .brand-name {
+  margin-right: auto;
+  max-width: 100%;
+  font-size: clamp(25px, 4vw, 40px);
+  letter-spacing: -1px;
+}
+
+#entrelinhas-vivo .brand-name img {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+}
+
+#entrelinhas-vivo .brand-name small {
+  display: block;
+  font:
+    11px/1.8 "IBM Plex Mono",
+    monospace;
+  letter-spacing: 1px;
+  margin-top: 16px;
+  color: var(--accent);
+}
+
+#entrelinhas-vivo .brand-orbit {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#entrelinhas-vivo .brand-orbit:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -4px;
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+#entrelinhas-vivo .brand-stage .logo-slice {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+#entrelinhas-vivo .logo-assembly {
+  margin: 0 !important;
+}
+
+#entrelinhas-vivo .logo-assembly .assembly-symbol {
+  max-width: none;
+}
+
+#entrelinhas-vivo .brand-stage.settled .career-rest {
+  opacity: 1;
+}
+
+#entrelinhas-vivo .brand-stage.settled .assembly-symbol {
+  opacity: 0;
+}
+
+#entrelinhas-vivo .logo-assembly * {
+  animation-play-state: paused;
+}
+
+#entrelinhas-vivo .brand-stage.playing .logo-assembly * {
+  animation-play-state: running;
+}
+
+#entrelinhas-vivo .logo-assembly .assembly-confirm {
+  display: none;
+}
+
+#entrelinhas-vivo .logo-assembly .assembly-tile,
+#entrelinhas-vivo .logo-assembly .logo-fragment,
+#entrelinhas-vivo .logo-assembly .assembly-letter,
+#entrelinhas-vivo .logo-assembly .assembly-spark {
+  animation-iteration-count: 1;
+}
+
+#entrelinhas-vivo .nexa .brand-stage > img {
+  border-radius: 26px;
+}
+
+#entrelinhas-vivo .brand-orbit.burgundy {
+  border-color: #c7b27a;
+}
+
+#entrelinhas-vivo .brand-orbit.burgundy:after {
+  background: #173b2b;
+}
+
+@media (max-width: 600px) {
+  #entrelinhas-vivo .brand-scene {
+    gap: 8px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #entrelinhas-vivo .brand-name {
+    margin: 0 auto 18px;
+  }
+
+  #entrelinhas-vivo .brand-stage {
+    width: 210px;
+    height: 210px;
+    flex-basis: 210px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #entrelinhas-vivo .logo-assembly * {
+    animation: none !important;
+  }
+
+  #entrelinhas-vivo .logo-assembly .logo-fragment,
+  #entrelinhas-vivo .logo-assembly .assembly-spark {
+    display: none;
+  }
+
+  #entrelinhas-vivo .logo-assembly .assembly-tile,
+  #entrelinhas-vivo .logo-assembly .assembly-letter {
+    opacity: 1;
+  }
+}
+
+.logo-assembly {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  margin: 22px auto 26px;
+}
+
+.assembly-halo {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9370ff1c, transparent 65%);
+  border: 1px solid #bca4ff16;
+  box-shadow:
+    0 0 0 26px #ac8aff05,
+    0 0 0 54px #ac8aff03;
+}
+
+.assembly-symbol {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  overflow: visible;
+  filter: drop-shadow(0 0 20px #a18aff35);
+}
+
+.assembly-tile {
+  fill: #7053e9;
+  opacity: 0;
+  animation: assembly-tile 4.5s ease-in-out infinite;
+}
+
+.logo-fragment {
+  transform-origin: 80px 80px;
+  animation: assembly-join 4.5s cubic-bezier(0.18, 0.78, 0.25, 1) infinite;
+  animation-delay: var(--delay);
+  opacity: 0;
+  filter: drop-shadow(0 0 4px #bda4ff88);
+}
+
+.assembly-letter {
+  opacity: 0;
+  animation: assembly-letter 4.5s ease-in-out infinite;
+}
+
+.assembly-confirm {
+  display: none;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  place-items: center;
+  border-radius: 32px;
+  background: #7053e9;
+  font-size: 50px;
+  box-shadow: 0 0 50px #a384ff55;
+}
+
+.assembly-spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c5b2ff;
+  box-shadow: 0 0 12px #bda3ff;
+  animation: assembly-spark 4.5s ease-in-out infinite;
+}
+
+@keyframes assembly-join {
+  0% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--turn)) scale(0.25);
+  }
+
+  8% {
+    opacity: 0.8;
+  }
+
+  28%,
+  72% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+
+  85% {
+    opacity: 0;
+    transform: translate(calc(var(--dx) * 0.35), calc(var(--dy) * 0.35))
+      rotate(var(--turn)) scale(0.6);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--turn)) scale(0.25);
+  }
+}
+
+@keyframes assembly-tile {
+  0%,
+  22% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  38%,
+  70% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  84%,
+  100% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes assembly-letter {
+  0%,
+  28% {
+    opacity: 0;
+  }
+
+  40%,
+  70% {
+    opacity: 1;
+  }
+
+  82%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes assembly-spark {
+  0%,
+  85%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  20%,
+  65% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+#entrelinhas-vivo .future .brand-scene {
+  border-bottom-color: #e6e6eb;
+}
+
+#entrelinhas-vivo .future .brand-orbit {
+  border-color: #d3d3da;
+}
+
+#entrelinhas-vivo .future .brand-orbit:after {
+  background: #171719;
+}
+
+#entrelinhas-vivo .future .brand-name small {
+  color: #686872;
+}
+
+#entrelinhas-vivo .future .brand-stage > img {
+  filter: none;
+}
+
+#entrelinhas-vivo .nexa .brand-name small {
+  color: #746b6c;
+}
+
+#entrelinhas-vivo .nexa .brand-name img {
+  width: 280px;
+  max-width: 100%;
+}
+
+#entrelinhas-vivo .experience .brand-name img {
+  width: 300px;
+  max-width: 100%;
+}
+
+#entrelinhas-vivo .brand-master {
+  display: block;
+  width: 200px;
+  height: 200px;
+  overflow: visible;
+}
+
+#entrelinhas-vivo [data-logo="career"] .assembly-symbol {
+  opacity: 1 !important;
+  filter: none;
+}
+
+#entrelinhas-vivo [data-logo="career"] .assembly-halo {
+  opacity: 0.65;
+}
+
+#entrelinhas-vivo [data-logo="career"] .logo-fragment {
+  animation-name: career-assemble;
+  animation-duration: 4500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+#entrelinhas-vivo [data-logo="career"] .assembly-tile {
+  animation-name: career-tile;
+  animation-duration: 4500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+#entrelinhas-vivo [data-logo="career"] .assembly-letter {
+  animation-name: career-letter;
+  animation-duration: 4500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+#entrelinhas-vivo [data-logo="career"] .assembly-spark {
+  animation-name: career-spark;
+  animation-duration: 4500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+#entrelinhas-vivo .career-wordmark {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+  font-family: Manrope, sans-serif;
+}
+
+@keyframes career-assemble {
+  0% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--turn)) scale(0.25);
+  }
+
+  8% {
+    opacity: 0.8;
+  }
+
+  28%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+}
+
+@keyframes career-tile {
+  0%,
+  22% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  38%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes career-letter {
+  0%,
+  28% {
+    opacity: 0;
+  }
+
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes career-spark {
+  0%,
+  85%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  20%,
+  65% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #entrelinhas-vivo [data-logo="career"] .logo-fragment,
+  #entrelinhas-vivo [data-logo="career"] .assembly-spark {
+    display: none;
+  }
+
+  #entrelinhas-vivo [data-logo="career"] .assembly-tile,
+  #entrelinhas-vivo [data-logo="career"] .assembly-letter {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#entrelinhas-vivo .brand-scene {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  margin-bottom: 52px;
+  min-height: 270px;
+}
+
+#entrelinhas-vivo .brand-name {
+  margin-left: 25px;
+}
+
+#entrelinhas-vivo .brand-stage {
+  perspective: 800px;
+}
+
+#entrelinhas-vivo .experience .brand-master {
+  filter: drop-shadow(12px 12px 0 #041b2033);
+}
+
+#entrelinhas-vivo .career-workspace {
+  background: #f6f7fb;
+  color: #242a42;
+  transform: perspective(1100px) rotateY(-9deg) rotateZ(2deg);
+  border: 1px solid #b4a2ff55;
+  box-shadow:
+    20px 20px 0 #7053e91a,
+    0 40px 70px #0004;
+  transition: transform 0.6s ease;
+}
+
+#entrelinhas-vivo .career-workspace:hover {
+  transform: perspective(1100px) rotateY(0) rotateZ(0);
+}
+
+#entrelinhas-vivo .workspace-top {
+  background: #7053e9;
+  color: white;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  font:
+    11px "IBM Plex Mono",
+    monospace;
+}
+
+#entrelinhas-vivo .workspace-body {
+  padding: 20px;
+}
+
+#entrelinhas-vivo .workspace-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-bottom: 15px;
+}
+
+#entrelinhas-vivo .job-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#entrelinhas-vivo .job-filters button {
+  border: 1px solid #ddd7ed;
+  background: #fff;
+  color: #242a42;
+  padding: 8px 10px;
+  font:
+    11px Inter,
+    sans-serif;
+  cursor: pointer;
+}
+
+#entrelinhas-vivo .job-filters button[aria-pressed="true"] {
+  background: #7053e9;
+  color: white;
+  border-color: #7053e9;
+}
+
+#entrelinhas-vivo .demo-job {
+  border-top: 1px solid #e0ddeb;
+  padding: 17px 0;
+  transition: transform 0.3s;
+}
+
+#entrelinhas-vivo .demo-job strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#entrelinhas-vivo .demo-job small {
+  font-size: 11px;
+  display: block;
+  color: #626984;
+  margin-top: 7px;
+}
+
+#entrelinhas-vivo .demo-job span {
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  color: #5b3ed0;
+  display: block;
+  margin-top: 10px;
+}
+
+#entrelinhas-vivo .demo-job:hover {
+  transform: translateX(5px);
+}
+
+#entrelinhas-vivo .in-scene .career-workspace {
+  animation: workspace-arrive 2.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+#entrelinhas-vivo .network {
+  padding: 28px 10px 10px;
+  position: relative;
+}
+
+#entrelinhas-vivo .network-main {
+  display: grid;
+  place-items: center;
+  width: 122px;
+  height: 122px;
+  margin: 0 auto 38px;
+  border: 1px solid #b1c8f377;
+  transform: rotate(45deg);
+  background: #152035;
+  box-shadow:
+    0 0 0 14px #b1c8f305,
+    0 0 0 35px #b1c8f303;
+}
+
+#entrelinhas-vivo .network-main span {
+  transform: rotate(-45deg);
+  font:
+    20px Inter,
+    sans-serif;
+  letter-spacing: 3px;
+}
+
+#entrelinhas-vivo .network-nodes {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+  padding-top: 28px;
+}
+
+#entrelinhas-vivo .network-nodes::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: #b1c8f355;
+}
+
+#entrelinhas-vivo .network-nodes::after {
+  content: "";
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  height: 38px;
+  width: 1px;
+  background: #b1c8f355;
+}
+
+#entrelinhas-vivo .network-nodes button {
+  position: relative;
+  flex: 1;
+  padding: 15px 6px;
+  border: 1px solid #b1c8f350;
+  background: #142238;
+  color: #ecf0ff;
+  font:
+    11px Inter,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+}
+
+#entrelinhas-vivo .network-nodes button::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -28px;
+  width: 1px;
+  height: 28px;
+  background: #b1c8f355;
+}
+
+#entrelinhas-vivo .network-nodes button[aria-pressed="true"] {
+  background: #b1c8f3;
+  color: #080c14;
+  transform: translateY(-5px);
+}
+
+#entrelinhas-vivo .network-detail {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 24px;
+  min-height: 75px;
+  color: #b1c8f3;
+  border-left: 2px solid #b1c8f3;
+  padding-left: 16px;
+}
+
+#entrelinhas-vivo .in-scene .network-main {
+  animation: network-assemble 2.1s ease both;
+}
+
+#entrelinhas-vivo .phone-scene {
+  perspective: 1000px;
+  position: relative;
+  padding: 30px 0 20px;
+  min-height: 470px;
+}
+
+#entrelinhas-vivo .phone-backdrop {
+  position: absolute;
+  left: 9%;
+  right: 4%;
+  height: 215px;
+  top: 140px;
+  background: #5a1d2a;
+  transform: rotate(-14deg);
+  box-shadow: 16px 18px 0 #c7b27a45;
+}
+
+#entrelinhas-vivo .phone-backdrop::after {
+  content: "NEXA / LASTRO";
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+  font:
+    11px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 2px;
+  color: #f5f2ea88;
+}
+
+#entrelinhas-vivo .finance-phone {
+  position: relative;
+  background: #f5f2ea;
+  color: #171719;
+  border: 7px solid #22171a;
+  border-radius: 30px;
+  width: 245px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 26px 20px;
+  box-shadow: 20px 30px 45px #5a1d2a30;
+  transform: rotateY(-12deg) rotateZ(5deg);
+  transition: transform 0.6s;
+}
+
+#entrelinhas-vivo .finance-phone:hover {
+  transform: rotateY(0) rotateZ(0);
+}
+
+#entrelinhas-vivo .phone-camera {
+  height: 5px;
+  width: 50px;
+  background: #22171a;
+  border-radius: 10px;
+  margin: -12px auto 24px;
+}
+
+#entrelinhas-vivo .phone-brand {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #5a1d2a;
+  font-weight: 500;
+  margin-bottom: 23px;
+}
+
+#entrelinhas-vivo .finance-phone h3 {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+#entrelinhas-vivo .finance-phone label {
+  display: block;
+  font-size: 10px;
+  color: #746b6c;
+  margin-top: 12px;
+}
+
+#entrelinhas-vivo .finance-phone input,
+#entrelinhas-vivo .finance-phone select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 5px;
+  padding: 10px 8px;
+  border: 1px solid #d8cec4;
+  background: #fff;
+  color: #171719;
+  font:
+    13px Inter,
+    sans-serif;
+  border-radius: 4px;
+}
+
+#entrelinhas-vivo .rule-result {
+  margin-top: 20px;
+  padding: 12px;
+  background: #173b2b;
+  color: #f5f2ea;
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 62px;
+}
+
+#entrelinhas-vivo .rule-result.invalid {
+  background: #5a1d2a;
+}
+
+#entrelinhas-vivo .phone-note {
+  font-size: 9px;
+  margin-top: 16px;
+  color: #746b6c;
+  line-height: 1.6;
+}
+
+#entrelinhas-vivo .in-scene .finance-phone {
+  animation: phone-arrive 2.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+#entrelinhas-vivo .recording-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #171719;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+#entrelinhas-vivo .skill-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#entrelinhas-vivo .skill-buttons button {
+  background: transparent;
+  border: 1px solid #29282050;
+  padding: 14px 20px;
+  color: #292820;
+  font:
+    16px Inter,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    transform 0.3s,
+    background 0.3s;
+}
+
+#entrelinhas-vivo .skill-buttons button:nth-child(even) {
+  transform: rotate(-3deg);
+}
+
+#entrelinhas-vivo .skill-buttons button[aria-pressed="true"] {
+  background: #292820;
+  color: #eee3cf;
+  transform: rotate(0) translateY(-4px);
+}
+
+#entrelinhas-vivo .skill-evidence {
+  border-top: 1px solid #29282050;
+  padding-top: 24px;
+  margin-top: 28px;
+  max-width: 700px;
+  min-height: 90px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+  #entrelinhas-vivo .brand-name {
+    margin: 0 auto 15px;
+  }
+
+  #entrelinhas-vivo .career-workspace {
+    transform: none;
+  }
+
+  #entrelinhas-vivo .phone-scene {
+    max-width: 360px;
+    width: 100%;
+    margin: auto;
+  }
+
+  #entrelinhas-vivo .network-nodes button {
+    min-height: 44px;
+  }
+
+  #entrelinhas-vivo .job-filters button {
+    min-height: 44px;
+  }
+
+  #entrelinhas-vivo .skill-buttons button {
+    min-height: 44px;
+  }
+}
+
+#entrelinhas-vivo .projects .demo-job[hidden] {
+  display: none;
+}
+
+#entrelinhas-vivo .projects .job-count {
+  margin: 15px 0 0;
+  color: #626984;
+}
+
+@media (max-width: 700px) {
+  #entrelinhas-vivo .demo.in-scene .career-workspace {
+    animation: none;
+    transform: none;
+  }
+}
+
+#entrelinhas-vivo .brand-stage:not(.motion-ready) .assembly-tile,
+#entrelinhas-vivo .brand-stage:not(.motion-ready) .assembly-letter {
+  animation: none !important;
+  opacity: 1;
+}
+
+#entrelinhas-vivo .brand-stage:not(.motion-ready) .logo-fragment,
+#entrelinhas-vivo .brand-stage:not(.motion-ready) .assembly-spark {
+  display: none;
+}
