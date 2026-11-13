@@ -158,6 +158,7 @@ Detalhes, evidências e limites: [docs/cinematic/VALIDATION.md](docs/cinematic/V
 Digitação com cursor, iluminação progressiva, foco, impressão, onda, contorno
 preenchido, montagem, faixa de luz e transformação de palavras foram distribuídos
 por projetos e seções. Código permanece na abertura e no contato. Os efeitos
-executam uma vez por entrada/montagem, respeitam movimento reduzido e mantêm os
+reiniciam a cada reentrada na tela, inclusive rolando para cima, respeitam
+movimento reduzido e mantêm os
 nomes acessíveis completos. Mapa e validação em
 [docs/expressive-typography/VALIDATION.md](docs/expressive-typography/VALIDATION.md).

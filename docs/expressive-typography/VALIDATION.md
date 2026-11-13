@@ -37,3 +37,14 @@ efeito de código, hovers laranja, CTAs e PDF da raiz foram preservados.
 Texto acessível permanece completo; a camada visual é decorativa. Animações
 não têm loops permanentes e são revertidas pelo contexto GSAP existente.
 Sem benchmark formal de FPS ou auditoria completa de acessibilidade.
+
+## Reentrada ao rolar para cima
+
+Após solicitação do autor, os nove efeitos e o código da abertura/contato agora
+reiniciam em ambas as direções de entrada no viewport. Permanecer parado não
+cria um loop. O final da zona considera o cabeçalho para iniciar o retorno com
+o título visível. A preferência de movimento reduzido continua sendo respeitada.
+
+O teste real de retorno da digitação falhou com a configuração anterior e passou
+com a nova. Os nove efeitos foram conferidos no retorno em 1440 e 320 px, com
+idioma e modo reduzido; o código da abertura também repetiu e restaurou o texto.

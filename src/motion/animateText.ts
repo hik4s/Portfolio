@@ -13,7 +13,12 @@ export function animateText(root: HTMLElement, desktop: boolean) {
       const words = Array.from(
         element.querySelectorAll<HTMLElement>(".motion-word"),
       );
-      const trigger = { trigger: element, start: "top 90%", once: true };
+      const trigger = {
+        trigger: element,
+        start: "top 90%",
+        end: "bottom 15%",
+        toggleActions: "restart none restart none",
+      };
       const timeline = gsap.timeline({
         scrollTrigger: trigger,
         defaults: { ease: "power2.out" },
