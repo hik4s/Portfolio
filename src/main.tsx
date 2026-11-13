@@ -13,3 +13,5 @@ import "./styles/editorial.css";
 import "./styles/visual-polish.css";
 
 import "./styles/cinematic.css";
+
+import "./styles/restored-details.css";

@@ -43,7 +43,7 @@ instalação reproduzível, testes e build em pushes/PRs; não realiza deploy.
 
 ## Jornada e conteúdo
 
-- Abertura pessoal com a origem do RelatPy e currículo PDF original de 09/11/2026.
+- Abertura pessoal com a origem do RelatPy e currículo PDF da raiz deste repositório.
 - Passagens visuais entre capítulos, leitura ampliada e movimento reduzido.
 - Casos do RelatPy, CareerOS, NEXUS, Nexa Finance e Nexer, com escopo e limitações.
 - Exploração das decisões, captura real do NEXUS e prancha de identidade do Nexa, ampliáveis.
@@ -76,11 +76,12 @@ JavaScript é necessário. As aplicações externas têm seus próprios requisit
 | `src/styles/visual-polish.css`            | Abertura pessoal, ritmo, mídia e medidas de leitura           |
 | `src/styles/editorial.css`                | Layout editorial e responsividade                             |
 | `src/styles/portfolio.css`                | Estilos compartilhados de marcas e demonstrações              |
-| `public/assets/`                          | Currículo, captura real, favicon e imagem de compartilhamento |
+| `public/assets/`                          | Captura real, favicon e imagem de compartilhamento |
 
 Atualize os casos em `src/data/cases.ts`. Os textos das demais seções ficam junto
 aos componentes editoriais, com versões PT/EN. O currículo oferecido continua em
-português em ambos os idiomas.
+português em ambos os idiomas. A fonte única é `Curriculo_Kauan-Inacio.pdf`, na raiz
+deste repositório; o Vite inclui esse mesmo arquivo no build, sem cópia manual.
 
 ## Rotas sem configuração de servidor
 
@@ -136,7 +137,7 @@ referência histórica. Detalhes da entrega: [docs/EDITORIAL.md](docs/EDITORIAL.
 ## English
 
 A static, bilingual portfolio with source-linked case studies, clearly labeled
-interactive demos, a local CSV validation lab and the original Portuguese résumé.
+interactive demos, a local CSV validation lab and the Portuguese résumé maintained in this repository.
 Use Node.js 24+, `npm ci`, `npm run dev`; verify with `npm test` and `npm run build`.
 All CSV processing runs in the browser. No backend or paid service is required.
 

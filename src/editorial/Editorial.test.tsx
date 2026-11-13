@@ -49,7 +49,7 @@ describe("nova jornada editorial", () => {
       within(nav).getByRole("link", { name: "Currículo PDF" }),
     ).toHaveAttribute(
       "href",
-      expect.stringContaining("curriculo-kauan-2026-11-09.pdf"),
+      expect.stringContaining("Curriculo_Kauan-Inacio"),
     );
   });
   it("mostra recuperação para um caso inexistente", () => {

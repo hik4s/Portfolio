@@ -87,7 +87,20 @@ export function ProjectChapter({
           <div className="compact-brand">
             <Brand id={item.id} />
           </div>
-          <h2 id={"project-title-" + item.id}>{item.headline}</h2>
+          <h2
+            id={"project-title-" + item.id}
+            aria-label={item.headline}
+            className="chapter-title"
+          >
+            <span className="title-words" aria-hidden="true">
+              {item.headline.split(" ").map((word, i) => (
+                <span className="title-word-wrap" key={i}>
+                  <span className="title-word">{word}</span>{" "}
+                </span>
+              ))}
+            </span>
+            <span className="title-underline" aria-hidden="true" />
+          </h2>
           <p className="chapter-summary">{item.summary}</p>
           <div className="tech-chips">
             {item.stack.map((tech) => (

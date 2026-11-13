@@ -1,3 +1,4 @@
+import { CodeText } from "./CodeText";
 import { useState } from "react";
 import { useLanguage } from "./Language";
 import { resumeUrl } from "./Navigation";
@@ -43,7 +44,7 @@ export function EditorialHero() {
               "Curiosity becomes code. Code changes routines.",
             )}
           >
-            <span>{t("Curiosidade", "Curiosity")}</span>
+            <CodeText text={t("Curiosidade", "Curiosity")} />
             <br />
             {t("que vira ", "becomes ")}
             <em>{t("código.", "code.")}</em>
@@ -62,7 +63,11 @@ export function EditorialHero() {
               {t("Explorar projetos", "Explore projects")}{" "}
               <span aria-hidden="true">↓</span>
             </a>
-            <a className="text-link" href={resumeUrl} download>
+            <a
+              className="text-link"
+              href={resumeUrl}
+              download="Curriculo_Kauan-Inacio.pdf"
+            >
               {t("Baixar currículo", "Download résumé")} ↗
             </a>
           </div>
@@ -302,10 +307,17 @@ export function ContactSection() {
           )}
         </span>
       </div>
-      <h2>
+      <h2
+        aria-label={t(
+          "O que podemos construir juntos?",
+          "What can we build together?",
+        )}
+      >
         {t("O que podemos", "What can we")}
         <br />
-        <em>{t("construir juntos?", "build together?")}</em>
+        <em>
+          <CodeText text={t("construir juntos?", "build together?")} />
+        </em>
       </h2>
       <div className="contact-bottom">
         <div>
@@ -320,10 +332,15 @@ export function ContactSection() {
           </p>
         </div>
         <div className="contact-links">
-          <a href={resumeUrl} download>
+          <a
+            className="button"
+            href={resumeUrl}
+            download="Curriculo_Kauan-Inacio.pdf"
+          >
             {t("Currículo PDF", "Résumé PDF")} ↗
           </a>
           <a
+            className="button"
             href="https://github.com/hik4s"
             target="_blank"
             rel="noopener noreferrer"
@@ -331,6 +348,7 @@ export function ContactSection() {
             GitHub ↗
           </a>
           <a
+            className="button"
             href="https://www.linkedin.com/in/kauan-inacio-dos-santos"
             target="_blank"
             rel="noopener noreferrer"
@@ -338,6 +356,7 @@ export function ContactSection() {
             LinkedIn ↗
           </a>
           <a
+            className="button button-conversation"
             href="https://wa.me/5518998127675"
             target="_blank"
             rel="noopener noreferrer"
@@ -346,7 +365,7 @@ export function ContactSection() {
               "Talk to Kauan on WhatsApp",
             )}
           >
-            WhatsApp ↗
+            {t("Vamos conversar", "Let’s talk")} ↗
           </a>
         </div>
       </div>
