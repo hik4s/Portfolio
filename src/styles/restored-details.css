@@ -123,7 +123,34 @@
   }
 }
 /* Keep the preference control clear of Netlify's production badge. */
-#entrelinhas-vivo.editorial .motion-toggle { left: 18px; right: auto; }
+#entrelinhas-vivo.editorial .motion-toggle {
+  left: 18px;
+  right: auto;
+}
 @media (max-width: 799px) {
-  #entrelinhas-vivo.editorial .motion-toggle { left: 10px; }
+  #entrelinhas-vivo.editorial .motion-toggle {
+    left: 10px;
+  }
+}
+
+#entrelinhas-vivo.editorial .contact-links {
+  max-width: 720px;
+}
+#entrelinhas-vivo.editorial .contact-links a.button {
+  gap: 10px;
+}
+.contact-icon {
+  display: block;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+.contact-cta-label {
+  min-width: 0;
+  text-align: left;
+}
+@media (max-width: 799px) {
+  #entrelinhas-vivo.editorial .contact-links a.button {
+    gap: 8px;
+  }
 }

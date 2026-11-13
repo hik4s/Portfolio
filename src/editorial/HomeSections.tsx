@@ -1,3 +1,4 @@
+import { ContactIcon } from "./ContactIcon";
 import { MotionText } from "./MotionText";
 import { CodeText } from "./CodeText";
 import { useState } from "react";
@@ -359,7 +360,10 @@ export function ContactSection() {
             href={resumeUrl}
             download="Curriculo_Kauan-Inacio.pdf"
           >
-            {t("Currículo PDF", "Résumé PDF")} ↗
+            <ContactIcon kind="resume" />
+            <span className="contact-cta-label">
+              {t("Currículo PDF", "Résumé PDF")} ↗
+            </span>
           </a>
           <a
             className="button"
@@ -367,7 +371,8 @@ export function ContactSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub ↗
+            <ContactIcon kind="github" />
+            <span className="contact-cta-label">GitHub ↗</span>
           </a>
           <a
             className="button"
@@ -375,7 +380,8 @@ export function ContactSection() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn ↗
+            <ContactIcon kind="linkedin" />
+            <span className="contact-cta-label">LinkedIn ↗</span>
           </a>
           <a
             className="button button-conversation"
@@ -387,7 +393,10 @@ export function ContactSection() {
               "Talk to Kauan on WhatsApp",
             )}
           >
-            {t("Vamos conversar", "Let’s talk")} ↗
+            <ContactIcon kind="whatsapp" />
+            <span className="contact-cta-label">
+              {t("Vamos conversar", "Let’s talk")} ↗
+            </span>
           </a>
         </div>
       </div>
