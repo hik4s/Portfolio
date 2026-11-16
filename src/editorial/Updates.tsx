@@ -15,17 +15,17 @@ export function Updates() {
       </h2>
       <div>
         <article>
-          <time dateTime="2026-11-10">10.11.2026</time>
+          <time dateTime="2026-11-16">16.11.2026</time>
           <h3>
             {t(
-              "Da página exportada ao React.",
-              "From an exported page to React.",
+              "Um caminho direto até as evidências.",
+              "A direct path to the evidence.",
             )}
           </h3>
           <p>
             {t(
-              "Componentes, TypeScript, testes de interação e um build reproduzível.",
-              "Components, TypeScript, interaction tests and a reproducible build.",
+              "Três projetos principais, competências em destaque e capturas com procedência.",
+              "Three main projects, visible skills and screenshots with provenance.",
             )}
           </p>
         </article>

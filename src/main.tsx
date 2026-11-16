@@ -17,3 +17,5 @@ import "./styles/cinematic.css";
 import "./styles/restored-details.css";
 
 import "./styles/expressive-typography.css";
+
+import "./styles/recruiter.css";

@@ -15,6 +15,7 @@ import {
 import { ProjectIndex, ProjectChapter } from "./editorial/ProjectChapters";
 import { ChapterBridge } from "./editorial/ChapterBridge";
 import { CasePage } from "./editorial/CasePage";
+import { RecruiterOverview } from "./editorial/RecruiterOverview";
 import { Updates } from "./editorial/Updates";
 import { useRoute } from "./editorial/useRoute";
 import type { Route } from "./editorial/useRoute";
@@ -83,6 +84,8 @@ function Portfolio({ route }: { route: Route }) {
       ) : (
         <main id="conteudo" tabIndex={-1}>
           <EditorialHero />
+          <RecruiterOverview cases={cases} />
+          <Skills />
           <ProjectIndex cases={cases} />
           {cases.map((item, index) => (
             <Fragment key={item.id}>
@@ -131,7 +134,6 @@ function Portfolio({ route }: { route: Route }) {
             </div>
             <CsvLab locale={locale} />
           </section>
-          <Skills />
           <ProcessSection />
           <JourneySection />
           <Updates />

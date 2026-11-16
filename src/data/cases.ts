@@ -20,6 +20,8 @@ export interface CaseStudy {
   }[];
   evidence: { label: string; url: string }[];
   liveUrl?: string;
+  demoUrl?: string;
+  sourceUrl?: string;
   screenshot?: string;
 }
 
@@ -40,6 +42,10 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
   pt: [
     {
       id: "relatpy",
+      sourceUrl: "https://github.com/hik4s/RelatPy-Generic-Example",
+      demoUrl:
+        "https://github.com/hik4s/RelatPy-Generic-Example/blob/portfolio/public-release/docs/DEMO.md",
+      screenshot: "assets/relatpy-demo.png",
       name: "RelatPy",
       category: "Automação operacional",
       headline: "Uma rotina repetitiva virou um fluxo acompanhável.",
@@ -59,7 +65,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "No uso operacional, relatei a redução de uma rotina de 30–40 minutos para cerca de 4 minutos no currículo de 09/11/2026. É um relato de uso; a amostra pública demonstra a arquitetura.",
       limitation:
-        "A medição não tem benchmark público reproduzível. A amostra remove fluxos e configurações privados e ainda não executa de ponta a ponta após um clone.",
+        "O demo público executa três relatórios em um site fictício local. Os fluxos corporativos permanecem privados; a redução de tempo relatada não é um benchmark desse demo.",
       decisions: [
         {
           question: "Como manter o processamento independente do painel?",
@@ -76,12 +82,17 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       ],
       evidence: [
         relatpySource("README.md", "Escopo e limites da amostra"),
+        relatpySource("docs/DEMO.md", "Executar a demonstração local"),
+        relatpySource("tests/test_demo.py", "Testes dos downloads"),
         relatpySource("ui/streamlit_app.py", "Painel local"),
         relatpySource("core/executor.py", "Executor assíncrono"),
       ],
     },
     {
       id: "career",
+      sourceUrl: "https://github.com/hik4s/CareerOS",
+      liveUrl: "https://careeros-v1.onrender.com/",
+      screenshot: "assets/careeros-overview.png",
       name: "CareerOS",
       category: "Desenvolvimento full stack",
       headline: "Da busca de vagas ao acompanhamento da candidatura.",
@@ -108,7 +119,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "O repositório implementa a jornada de buscar, revisar e salvar uma vaga, atualizar seu status, comparar currículo e exportar dados da conta.",
       limitation:
-        "Não há demonstração pública documentada. Cobertura e atualização variam por fonte; integrações opcionais exigem configuração. Testes simulados não comprovam Auth, RLS e Storage no ambiente publicado.",
+        "O aplicativo público permite criar uma conta. Cobertura e atualização variam por fonte; integrações opcionais exigem configuração. Capturas com serviços simulados não comprovam Auth, RLS e Storage em produção.",
       decisions: [
         {
           question: "Uma falha no login significa sessão expirada?",
@@ -133,6 +144,11 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       ],
       evidence: [
         source("CareerOS", "README.md", "Escopo do MVP"),
+        source(
+          "CareerOS",
+          "docs/SEARCH_ENGINE_2026-11-09.md",
+          "Medição histórica e limites da busca",
+        ),
         source("CareerOS", "app/cloud/main.py", "API e validações"),
         source("CareerOS", "app/cloud/auth.py", "Verificação de sessão"),
         source("CareerOS", "tests/test_cloud_api.py", "Testes da API"),
@@ -140,12 +156,13 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
     },
     {
       id: "nexus",
+      sourceUrl: "https://github.com/hik4s/NEXUS",
       name: "NEXUS",
       category: "Regras de negócio · full stack",
       headline: "Uma venda conecta estoque, financeiro e confiança nos dados.",
       summary:
         "MVP de gestão empresarial com jornada real de importação CSV, revisão, confirmação de venda e cancelamento com reversão.",
-      status: "MVP publicado · acesso de demonstração restrito",
+      status: "MVP publicado · cadastro individual",
       stack: [
         "React",
         "TypeScript",
@@ -167,7 +184,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "O MVP está publicado no Render com PostgreSQL no Neon. A documentação registra validação da jornada integrada, isolamento entre empresas, persistência após redeploy e backup/restauração.",
       limitation:
-        "A demonstração exige conta fornecida pelo responsável e pode aguardar inicialização do plano gratuito. O recorte publicado não demonstra todos os módulos, workers, IA ou infraestrutura AWS presentes no repositório.",
+        "Crie sua conta para experimentar com dados fictícios; o plano gratuito pode exigir aguardar a inicialização. O recorte publicado não demonstra todos os módulos, workers, IA ou infraestrutura AWS presentes no repositório.",
       decisions: [
         {
           question: "O que acontece ao confirmar ou cancelar uma venda?",
@@ -205,6 +222,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
     },
     {
       id: "nexa",
+      sourceUrl: "https://github.com/hik4s/Nexa",
       name: "Nexa Finance",
       category: "Kotlin · domínio financeiro",
       headline: "Precisão financeira começa nas regras.",
@@ -294,33 +312,28 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "O objetivo de produto está definido. A evidência pública disponível ainda descreve a base anterior de automação e não comprova um gravador funcional.",
       limitation:
-        "O README atual ainda descreve o RelatPy. Captura, geração de código e repetição devem ser tratadas como proposta até existir uma demonstração reproduzível própria.",
+        "Projeto privado, apresentado como estudo em desenvolvimento. Ainda não há demonstração pública reproduzível do gravador; a base pública relacionada é o RelatPy.",
       decisions: [
         {
           question: "O que já pode ser avaliado publicamente?",
           answer:
-            "A documentação existente permite revisar a base anterior de automação. Ela ainda não sustenta afirmar que o gravador do Nexer está concluído.",
-          source: source(
-            "Nexer",
-            "README.md",
-            "Documentação atual do repositório",
-            "master",
+            "A demonstração pública do RelatPy permite avaliar automação e concorrência. Ela não comprova captura ou repetição de fluxos pelo Nexer.",
+          source: relatpySource(
+            "docs/DEMO.md",
+            "Base pública relacionada: RelatPy",
           ),
         },
       ],
-      evidence: [
-        source(
-          "Nexer",
-          "README.md",
-          "Base documentada e limites atuais",
-          "master",
-        ),
-      ],
+      evidence: [relatpySource("docs/DEMO.md", "Demonstração da base RelatPy")],
     },
   ],
   en: [
     {
       id: "relatpy",
+      sourceUrl: "https://github.com/hik4s/RelatPy-Generic-Example",
+      demoUrl:
+        "https://github.com/hik4s/RelatPy-Generic-Example/blob/portfolio/public-release/docs/DEMO.md",
+      screenshot: "assets/relatpy-demo.png",
       name: "RelatPy",
       category: "Operational automation",
       headline: "A repetitive task became a trackable workflow.",
@@ -340,7 +353,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "In my November 9, 2026 résumé, I reported reducing an operational routine from 30–40 minutes to around 4 minutes. This is a usage report; the public sample demonstrates the architecture.",
       limitation:
-        "The timing has no publicly reproducible benchmark. Private workflows and configuration are removed, so a fresh clone cannot yet run the sample end to end.",
+        "The public demo runs three reports against a fictional local site. Corporate workflows remain private; reported operational savings are not a benchmark of this demo.",
       decisions: [
         {
           question: "How does execution stay independent of the dashboard?",
@@ -360,12 +373,17 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       ],
       evidence: [
         relatpySource("README.md", "Public sample scope and limits"),
+        relatpySource("docs/DEMO.md", "Run the local demo"),
+        relatpySource("tests/test_demo.py", "Download tests"),
         relatpySource("ui/streamlit_app.py", "Local dashboard"),
         relatpySource("core/executor.py", "Asynchronous executor"),
       ],
     },
     {
       id: "career",
+      sourceUrl: "https://github.com/hik4s/CareerOS",
+      liveUrl: "https://careeros-v1.onrender.com/",
+      screenshot: "assets/careeros-overview.png",
       name: "CareerOS",
       category: "Full stack development",
       headline: "From finding a job to tracking the application.",
@@ -392,7 +410,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "The repository implements finding, reviewing and saving a job, updating its status, comparing résumé information and exporting account data.",
       limitation:
-        "No public demo is documented. Coverage and freshness vary by source; optional integrations require configuration. Mocked tests do not verify deployed Auth, RLS or Storage.",
+        "The public app accepts account registration. Coverage and freshness vary by source; optional integrations require configuration. Screenshots with mocked services do not verify deployed Auth, RLS or Storage.",
       decisions: [
         {
           question: "Does a login service failure mean an expired session?",
@@ -417,6 +435,11 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       ],
       evidence: [
         source("CareerOS", "README.md", "MVP scope"),
+        source(
+          "CareerOS",
+          "docs/SEARCH_ENGINE_2026-11-09.md",
+          "Historical search measurement and limits",
+        ),
         source("CareerOS", "app/cloud/main.py", "API and validation"),
         source("CareerOS", "app/cloud/auth.py", "Session verification"),
         source("CareerOS", "tests/test_cloud_api.py", "API tests"),
@@ -424,12 +447,13 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
     },
     {
       id: "nexus",
+      sourceUrl: "https://github.com/hik4s/NEXUS",
       name: "NEXUS",
       category: "Business rules · full stack",
       headline: "A sale connects inventory, finance and trust in the data.",
       summary:
         "A business management MVP with a real CSV import, review, sale confirmation and cancellation workflow, including reversal of its effects.",
-      status: "Deployed MVP · restricted demo access",
+      status: "Deployed MVP · individual registration",
       stack: [
         "React",
         "TypeScript",
@@ -451,7 +475,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "The MVP is deployed on Render with PostgreSQL on Neon. Documentation records validation of the integrated journey, company isolation, persistence after redeployment and backup/restore.",
       limitation:
-        "The demo requires an account supplied by the maintainer and may need time to wake on the free plan. Its scope does not demonstrate every module, worker, AI integration or AWS configuration in the repository.",
+        "Create your account and use fictional data; the free plan may need time to wake. Its scope does not demonstrate every module, worker, AI integration or AWS configuration in the repository.",
       decisions: [
         {
           question: "What happens when a sale is confirmed or cancelled?",
@@ -489,6 +513,7 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
     },
     {
       id: "nexa",
+      sourceUrl: "https://github.com/hik4s/Nexa",
       name: "Nexa Finance",
       category: "Kotlin · financial domain",
       headline: "Financial precision starts with the rules.",
@@ -578,28 +603,19 @@ export const caseStudies: Record<"pt" | "en", CaseStudy[]> = {
       result:
         "The product goal is defined. Available public evidence still describes the earlier automation foundation and does not demonstrate a working recorder.",
       limitation:
-        "The current README still describes RelatPy. Recording, code generation and replay remain proposed until there is a dedicated, reproducible demonstration.",
+        "A private project presented as a work in progress. There is no public reproducible recorder demo yet; RelatPy is the related public foundation.",
       decisions: [
         {
           question: "What can be assessed publicly today?",
           answer:
-            "The existing documentation supports reviewing the earlier automation foundation. It does not yet support claiming the Nexer recorder is complete.",
-          source: source(
-            "Nexer",
-            "README.md",
-            "Current repository documentation",
-            "master",
+            "The public RelatPy demo supports reviewing automation and concurrency. It does not demonstrate Nexer recording or replay.",
+          source: relatpySource(
+            "docs/DEMO.md",
+            "Related public foundation: RelatPy",
           ),
         },
       ],
-      evidence: [
-        source(
-          "Nexer",
-          "README.md",
-          "Documented foundation and current limits",
-          "master",
-        ),
-      ],
+      evidence: [relatpySource("docs/DEMO.md", "RelatPy foundation demo")],
     },
   ],
 };

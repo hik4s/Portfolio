@@ -11,7 +11,21 @@ export function ProjectVisual({
   screenshot?: boolean;
 }) {
   const { t } = useLanguage();
-  if (id === "career") return <CareerDemo />;
+  if (id === "career")
+    return (
+      <div className="project-media-stack">
+        <RealProjectMedia project="career" />
+        <details>
+          <summary>
+            {t(
+              "Experimentar filtro ilustrativo",
+              "Try the illustrative filter",
+            )}
+          </summary>
+          <CareerDemo />
+        </details>
+      </div>
+    );
   if (id === "nexa")
     return (
       <div className="nexa-media-stack">
@@ -30,62 +44,70 @@ export function ProjectVisual({
     return screenshot ? <RealProjectMedia project="nexus" /> : <NexusDemo />;
   if (id === "relatpy")
     return (
-      <div className="automation-scene demo">
-        <div className="demo-label">
-          {t(
-            "Do trabalho repetitivo ao fluxo automatizado",
-            "From repetitive work to an automated flow",
-          )}
-        </div>
-        <div className="pipeline-visual" aria-hidden="true">
-          <div className="file-icon">
-            CSV<span>01</span>
+      <div className="project-media-stack">
+        <RealProjectMedia project="relatpy" />
+        <details>
+          <summary>
+            {t("Entender a arquitetura", "Explore the architecture")}
+          </summary>
+          <div className="automation-scene demo">
+            <div className="demo-label">
+              {t(
+                "Do trabalho repetitivo ao fluxo automatizado",
+                "From repetitive work to an automated flow",
+              )}
+            </div>
+            <div className="pipeline-visual" aria-hidden="true">
+              <div className="file-icon">
+                CSV<span>01</span>
+              </div>
+              <span>→</span>
+              <div className="process-icon">
+                py<span>async / worker</span>
+              </div>
+              <span>→</span>
+              <div className="file-icon">
+                CSV<span>✓</span>
+              </div>
+            </div>
+            <div className="terminal-preview">
+              <div>
+                <span className="status-dot" /> relatpy / worker
+              </div>
+              <pre>
+                {t(
+                  "> validar período\n> aguardar interface\n> extrair relatórios\n> acompanhar downloads\n> atualizar status_",
+                  "> validate date range\n> wait for interface\n> extract reports\n> track downloads\n> update status_",
+                )}
+              </pre>
+            </div>
+            <div className="reported-result">
+              <div>
+                <small>
+                  {t("Antes / relato de uso", "Before / reported usage")}
+                </small>
+                <strong>
+                  30–40 <span>min</span>
+                </strong>
+              </div>
+              <span>→</span>
+              <div>
+                <small>
+                  {t("Depois / relato de uso", "After / reported usage")}
+                </small>
+                <strong>
+                  ~4 <span>min</span>
+                </strong>
+              </div>
+            </div>
+            <p className="visual-caption">
+              {t(
+                "Tempos aproximados informados no currículo. Sem benchmark público reproduzível.",
+                "Approximate times reported in the résumé. No reproducible public benchmark.",
+              )}
+            </p>
           </div>
-          <span>→</span>
-          <div className="process-icon">
-            py<span>async / worker</span>
-          </div>
-          <span>→</span>
-          <div className="file-icon">
-            CSV<span>✓</span>
-          </div>
-        </div>
-        <div className="terminal-preview">
-          <div>
-            <span className="status-dot" /> relatpy / worker
-          </div>
-          <pre>
-            {t(
-              "> validar período\n> aguardar interface\n> extrair relatórios\n> acompanhar downloads\n> atualizar status_",
-              "> validate date range\n> wait for interface\n> extract reports\n> track downloads\n> update status_",
-            )}
-          </pre>
-        </div>
-        <div className="reported-result">
-          <div>
-            <small>
-              {t("Antes / relato de uso", "Before / reported usage")}
-            </small>
-            <strong>
-              30–40 <span>min</span>
-            </strong>
-          </div>
-          <span>→</span>
-          <div>
-            <small>
-              {t("Depois / relato de uso", "After / reported usage")}
-            </small>
-            <strong>
-              ~4 <span>min</span>
-            </strong>
-          </div>
-        </div>
-        <p className="visual-caption">
-          {t(
-            "Tempos aproximados informados no currículo. Sem benchmark público reproduzível.",
-            "Approximate times reported in the résumé. No reproducible public benchmark.",
-          )}
-        </p>
+        </details>
       </div>
     );
   return (

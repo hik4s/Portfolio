@@ -84,6 +84,9 @@ export function ProjectChapter({
         </span>
         <span className="chapter-status">
           <i />
+          {index >= 3
+            ? t("Estudo complementar · ", "Complementary study · ")
+            : ""}
           {item.status}
         </span>
       </div>
@@ -130,31 +133,34 @@ export function ProjectChapter({
             >
               {t("Ler estudo de caso", "Read case study")} ↗
             </a>
-            <a
-              className="text-link"
-              href={
-                "https://github.com/hik4s/" +
-                {
-                  relatpy: "RelatPy-Generic-Example",
-                  career: "CareerOS",
-                  nexus: "NEXUS",
-                  nexa: "Nexa",
-                  nexer: "Nexer",
-                }[item.id]
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={
-                item.id === "career"
-                  ? t("Explorar o CareerOS ↗", "Explore CareerOS ↗")
-                  : t(
-                      "Ver código de " + item.name,
-                      "View " + item.name + " source",
-                    )
-              }
-            >
-              {t("Ver código", "View source")} ↗
-            </a>
+            {item.sourceUrl && (
+              <a
+                className="text-link"
+                href={item.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={
+                  item.id === "career"
+                    ? t("Explorar o CareerOS ↗", "Explore CareerOS ↗")
+                    : t(
+                        "Ver código de " + item.name,
+                        "View " + item.name + " source",
+                      )
+                }
+              >
+                {t("Ver código", "View source")} ↗
+              </a>
+            )}
+            {item.demoUrl && (
+              <a
+                className="text-link"
+                href={item.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("Executar demo local", "Run local demo")} ↗
+              </a>
+            )}
           </div>
           {item.liveUrl && (
             <p className="live-link">
@@ -163,15 +169,15 @@ export function ProjectChapter({
               </a>
               <small>
                 {t(
-                  "Acesso por conta demo · pode hibernar",
-                  "Demo account required · may sleep",
+                  "Crie sua conta · use dados fictícios · pode hibernar",
+                  "Create an account · use fictional data · may sleep",
                 )}
               </small>
             </p>
           )}
         </div>
         <div className="chapter-product reveal">
-          <ProjectVisual id={item.id} screenshot={item.id === "nexus"} />
+          <ProjectVisual id={item.id} screenshot={Boolean(item.screenshot)} />
         </div>
       </div>
       <ProjectSequence id={item.id} />

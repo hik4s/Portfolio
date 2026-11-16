@@ -25,8 +25,8 @@ export function EditorialHero() {
       <div className="hero-kicker">
         <span className="status-dot" />
         {t(
-          "Desenvolvimento de software · Python & Full Stack",
-          "Software development · Python & Full Stack",
+          "Desenvolvedor Júnior · Python / Backend / Full Stack",
+          "Junior Developer · Python / Backend / Full Stack",
         )}
         <span className="edition">
           {t("PORTFÓLIO / 2026", "PORTFOLIO / 2026")}
@@ -54,6 +54,7 @@ export function EditorialHero() {
               {t("Código que muda rotinas.", "Code changes routines.")}
             </small>
           </h1>
+          <p className="hero-stack">Python · FastAPI · PostgreSQL · React</p>
           <p className="hero-description">
             {t(
               "Construo automações e aplicações que conectam dados, interfaces e problemas reais. Estudante de T.I. na Univesp, com experiência em automação aplicada à rotina de uma equipe.",
@@ -61,7 +62,7 @@ export function EditorialHero() {
             )}
           </p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#experiencia">
+            <a className="button button-dark" href="#selecionados">
               {t("Explorar projetos", "Explore projects")}{" "}
               <span aria-hidden="true">↓</span>
             </a>
@@ -75,8 +76,8 @@ export function EditorialHero() {
           </div>
           <p className="availability">
             {t(
-              "Aberto a estágio e oportunidades júnior em desenvolvimento.",
-              "Open to software development internships and junior roles.",
+              "Busco uma vaga de desenvolvimento júnior. Também considero estágio.",
+              "Seeking a junior developer role. Also open to internships.",
             )}
           </p>
         </div>
@@ -325,8 +326,8 @@ export function ContactSection() {
         <span className="availability">
           <i className="status-dot" />
           {t(
-            "Estágio · Desenvolvimento júnior",
-            "Internship · Junior development",
+            "Desenvolvimento júnior · Estágio",
+            "Junior development · Internship",
           )}
         </span>
       </div>

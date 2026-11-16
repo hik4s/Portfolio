@@ -110,7 +110,11 @@ export function CasePage({ item }: { item?: CaseStudy }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t("Ver captura completa do NEXUS", "View full NEXUS screenshot")} ↗
+            {t(
+              "Ver captura completa de " + item.name,
+              "View full " + item.name + " screenshot",
+            )}{" "}
+            ↗
           </a>
         )}
       </section>
@@ -200,8 +204,8 @@ export function CasePage({ item }: { item?: CaseStudy }) {
             </a>
             <small>
               {t(
-                "Conta de demonstração necessária; o serviço gratuito pode hibernar.",
-                "Demo account required; the free service may sleep.",
+                "Crie sua conta e use dados fictícios; o serviço gratuito pode hibernar.",
+                "Create your account and use fictional data; the free service may sleep.",
               )}
             </small>
           </p>

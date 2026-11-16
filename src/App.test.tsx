@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import App from "./App";
 
@@ -34,6 +34,7 @@ describe("portfólio completo", () => {
 
   it("exibe conteúdo e demonstrações sem suporte a observers ou matchMedia", () => {
     render(<App />);
+    fireEvent.click(screen.getByText("Experimentar filtro ilustrativo"));
     expect(screen.getByText("2 oportunidades de demonstração")).toBeVisible();
     expect(
       screen.getByRole("heading", {

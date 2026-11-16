@@ -19,7 +19,7 @@ export function Navigation() {
       );
       const anchors = [
         "inicio",
-        "experiencia",
+        "selecionados",
         "laboratorio",
         "processo",
         "contato",
@@ -56,8 +56,8 @@ export function Navigation() {
         </a>
         <nav aria-label={t("Navegação principal", "Main navigation")}>
           <a
-            href="#experiencia"
-            aria-current={active === "experiencia" ? "location" : undefined}
+            href="#selecionados"
+            aria-current={active === "selecionados" ? "location" : undefined}
           >
             {t("Projetos", "Projects")}
           </a>
@@ -78,7 +78,8 @@ export function Navigation() {
             href={resumeUrl}
             download="Curriculo_Kauan-Inacio.pdf"
           >
-            {t("Currículo PDF", "Résumé PDF")} <span aria-hidden="true">↗</span>
+            {t("Currículo PDF", "Résumé PDF")}{" "}
+            <span aria-hidden="true">↗</span>
           </a>
         </nav>
         <div
