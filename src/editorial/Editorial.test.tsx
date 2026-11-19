@@ -49,7 +49,7 @@ describe("nova jornada editorial", () => {
       within(nav).getByRole("link", { name: "Currículo PDF" }),
     ).toHaveAttribute(
       "href",
-      expect.stringContaining("Curriculo_Kauan-Inacio"),
+      expect.stringContaining("Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf"),
     );
   });
   it("mostra recuperação para um caso inexistente", () => {

@@ -68,7 +68,7 @@ export function EditorialHero() {
             <a
               className="text-link"
               href={resumeUrl}
-              download="Curriculo_Kauan-Inacio.pdf"
+              download="Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf"
             >
               {t("Baixar currículo", "Download résumé")} ↗
             </a>
@@ -358,7 +358,7 @@ export function ContactSection() {
           <a
             className="button"
             href={resumeUrl}
-            download="Curriculo_Kauan-Inacio.pdf"
+            download="Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf"
           >
             <ContactIcon kind="resume" />
             <span className="contact-cta-label">

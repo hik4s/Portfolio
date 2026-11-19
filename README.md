@@ -76,12 +76,12 @@ JavaScript é necessário. As aplicações externas têm seus próprios requisit
 | `src/styles/visual-polish.css`            | Abertura pessoal, ritmo, mídia e medidas de leitura           |
 | `src/styles/editorial.css`                | Layout editorial e responsividade                             |
 | `src/styles/portfolio.css`                | Estilos compartilhados de marcas e demonstrações              |
-| `public/assets/`                          | Captura real, favicon e imagem de compartilhamento |
+| `public/assets/`                          | Captura real, currículo PDF, favicon e imagem de compartilhamento |
 
 Atualize os casos em `src/data/cases.ts`. Os textos das demais seções ficam junto
 aos componentes editoriais, com versões PT/EN. O currículo oferecido continua em
-português em ambos os idiomas. A fonte única é `Curriculo_Kauan-Inacio.pdf`, na raiz
-deste repositório; o Vite inclui esse mesmo arquivo no build, sem cópia manual.
+português em ambos os idiomas e fica em
+`public/assets/Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf`.
 
 ## Rotas sem configuração de servidor
 

@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "./Language";
 export const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
-import repositoryResumeUrl from "../../Curriculo_Kauan-Inacio.pdf?url";
-export const resumeUrl = repositoryResumeUrl;
+export const resumeUrl = assetUrl(
+  "assets/Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf",
+);
 
 export function Navigation() {
   const { locale, setLocale, t } = useLanguage();
@@ -76,7 +77,7 @@ export function Navigation() {
           <a
             className="nav-resume"
             href={resumeUrl}
-            download="Curriculo_Kauan-Inacio.pdf"
+            download="Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf"
           >
             {t("Currículo PDF", "Résumé PDF")} <span aria-hidden="true">↗</span>
           </a>

@@ -33,7 +33,7 @@ it("offers clear contact CTAs including conversation and the repository resume",
   const cv = within(contact).getByRole("link", { name: /^Currículo PDF/ });
   expect(cv).toHaveAttribute(
     "href",
-    expect.stringContaining("Curriculo_Kauan-Inacio"),
+    expect.stringContaining("Curriculo-DEV_Kauan-Inacio-dos-Santos.pdf"),
   );
   expect(cv).toHaveAttribute("download");
   expect(within(contact).getByRole("link", { name: /GitHub/ })).toHaveClass(
